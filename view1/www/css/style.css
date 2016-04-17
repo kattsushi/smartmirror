@@ -1,0 +1,105 @@
+/* Empty. Add your own CSS if you like */
+
+* {
+	font-family: 'Roboto Mono' ;
+}
+body {
+  text-align:center;
+  padding:0px 30px 120px;
+  line-height:1.3;
+  background: black;
+}
+
+h1 {
+
+  color : white;
+  font-size: 2.4em;
+  margin : 0;
+  font-family: 'Roboto Mono' ;
+}
+
+#temp {
+	padding-top: 50px;
+}
+
+h2 {
+  color : white;
+  font-size: 2.9em;
+  margin : 0;
+  font-family: 'Krona One', sans-serif;
+  font-weight: 400;
+}
+ .date {
+  color : white;
+  font-size: 1.1em;
+  margin : 0; 
+  font-family: 'Krona One', sans-serif;
+  font-weight: 400;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 70px #fff, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
+
+}
+
+p { 
+  width: 70%;
+  margin: 20px auto;
+  font-family: 'Roboto Mono' ;
+}
+
+input {
+  padding:30px;
+  margin:10px;
+  width:80%;
+  font-size:3em;
+  text-align:center;
+}
+
+.wi {
+  font-size:13em;
+  line-height:1.15;
+
+  color : white;
+}
+
+.icon {
+  padding:20px;
+  color:white;
+  float: right;
+}
+
+.card {
+  width:690px;
+  height:750px;
+  display:flex;
+  flex-direction: column;
+  padding:20px;
+  margin: 30px auto;
+  border-radius:3px;
+  color : white;
+}
+
+.key span {
+  padding:10px;
+  border-radius:3px;
+}
+
+.info {
+  width:100%;
+
+  color : white;
+}
+
+.cool {
+  background: #BAE8E7;
+}
+
+.mid {
+  background: #FCCA55;
+}
+
+.back {
+  background: black;
+}
+
+.error {
+  color:red;
+}
