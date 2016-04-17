@@ -21,3 +21,66 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+body {
+  text-align:center;
+  padding:0px 30px 120px;
+  line-height:1.3;
+}
+
+p { 
+  width: 70%;
+  margin: 20px auto;
+}
+
+input {
+  padding:30px;
+  margin:10px;
+  width:80%;
+  font-size:3em;
+  text-align:center;
+}
+
+.wi {
+  font-size:12em;
+  line-height:1.15;
+}
+
+.icon {
+  padding:20px;
+  color:white;
+}
+
+.card {
+  width:450px;
+  height:450px;
+  display:flex;
+  flex-direction: column;
+  padding:20px;
+  margin: 30px auto;
+  border-radius:3px;
+}
+
+.key span {
+  padding:10px;
+  border-radius:3px;
+}
+
+.info {
+  width:100%;
+}
+
+.cool {
+  background: #BAE8E7;
+}
+
+.mid {
+  background: #FCCA55;
+}
+
+.hot {
+  background: #FF3D5A;
+}
+
+.error {
+  color:red;
+}
