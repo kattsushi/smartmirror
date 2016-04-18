@@ -1,0 +1,24 @@
+{
+  "name": "hTipoMenu",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nombre": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "hMenus": {
+      "type": "hasMany",
+      "model": "hMenu",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
