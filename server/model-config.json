@@ -34,19 +34,25 @@
     "public": false
   },
   "hPlato": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": true,
     "$promise": {},
     "$resolved": true
   },
   "hMenu": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": true,
     "$promise": {},
     "$resolved": true
   },
-  "hTipoMenu": {
-    "dataSource": "db",
+  "hPersona": {
+    "dataSource": "mongodb",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "hMenuDiario": {
+    "dataSource": "mongodb",
     "public": true,
     "$promise": {},
     "$resolved": true

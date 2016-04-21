@@ -1,5 +1,5 @@
 {
-  "name": "hTipoMenu",
+  "name": "hPersona",
   "base": "PersistedModel",
   "strict": false,
   "idInjection": false,
@@ -8,17 +8,12 @@
   },
   "properties": {
     "nombre": {
-      "type": "string"
+      "type": "string",
+      "required": true
     }
   },
   "validations": [],
-  "relations": {
-    "hMenus": {
-      "type": "hasMany",
-      "model": "hMenu",
-      "foreignKey": ""
-    }
-  },
+  "relations": {},
   "acls": [],
   "methods": {}
 }
