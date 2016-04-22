@@ -42,8 +42,8 @@
   },
   "files": {
     "loopback#static": {
-     "params": "$!../client/dist"
-   }
+      "params": "$!../client/dist"
+    }
   },
   "final": {
     "loopback#urlNotFound": {}

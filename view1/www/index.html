@@ -27,7 +27,7 @@
     <script src="js/controllers.js"></script>
   </head>
   <body ng-app="app" ng-controller="mainCtrl as vm">
-    <div class="container">
+    <div class="container" style="visibility: {{visibility}}">
 
       <h2 class="error"
           ng-show="!vm.weatherData.name">
