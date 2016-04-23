@@ -10,6 +10,12 @@
     "nombre": {
       "type": "string",
       "required": true
+    },
+    "id": {
+      "type": "string",
+      "id": true,
+      "required": true,
+      "index": true
     }
   },
   "validations": [],
@@ -17,11 +23,6 @@
     "hPlatos": {
       "type": "hasMany",
       "model": "hPlato",
-      "foreignKey": ""
-    },
-    "hTipoMenu": {
-      "type": "belongsTo",
-      "model": "hTipoMenu",
       "foreignKey": ""
     }
   },
