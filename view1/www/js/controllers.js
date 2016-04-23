@@ -1,21 +1,25 @@
 /*global angular */
 'use strict';
 
-function MainCtrl($http, $scope) {
+function MainCtrl($http, $scope, Enlace) {
 	var vm = this;
 
 	vm.location = '';
-   setInterval(function () {
-      $http.get('http://10.0.0.120:3000/api/enlaces', {id:1}).
-      success(function(data){
-         console.log(data);
-         if (data[0].screen && data[0].id_espejo === "001"){
-            vm.vissible = 'visibility';
-         }else{
-            vm.vissible = 'hidden';
-         }
-      });
+   console.log('ñ');
 
+   setInterval(function () {
+      Enlace
+      .find({})
+      .$promise
+      .then(function(data){
+         for (var i = 0; i < data.length; i++) {
+            if (data[i].screen && data[i].id_espejo === "001"){
+               vm.vissible = 'visibility';
+            }else{
+               vm.vissible = 'hidden';
+            }
+         }
+      })
    }, 500);
 
 
@@ -90,6 +94,5 @@ function MainCtrl($http, $scope) {
 };
 
 
-angular.module('app', [])
-
-.controller('mainCtrl',['$http','$scope', MainCtrl]);
+angular.module('app.controllers', [])
+   .controller('mainCtrl',['$http','$scope','Enlace', MainCtrl]);
