@@ -1,5 +1,5 @@
 (function () {
-    angular.module('app', ['ionic', 'routes'])
+    angular.module('app', ['ionic', 'routes', 'app.controllers', 'lbServices'])
 
     .run(function($ionicPlatform) {
       $ionicPlatform.ready(function() {
@@ -18,5 +18,12 @@
         }
       });
     })
+    .config(['LoopBackResourceProvider', function (LoopBackResourceProvider) {
+
+            LoopBackResourceProvider.setUrlBase('http://10.0.0.120:3000/api');
+            //console.info(user);
+
+            LoopBackResourceProvider.setAuthHeader('X-Access-Token');
+    }]);
 
 })();
