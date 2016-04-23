@@ -46,7 +46,7 @@
     "$resolved": true
   },
   "hPersona": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": true,
     "$promise": {},
     "$resolved": true
@@ -58,7 +58,7 @@
     "$resolved": true
   },
   "enlace": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": true,
     "$promise": {},
     "$resolved": true
