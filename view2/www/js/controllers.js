@@ -2,7 +2,7 @@
 (function() {
 'use strict';
 
-function MainCtrl($http) {
+function MainCtrl($http, Enlace) {
   var vm = this;
 
   vm.location = 'Hola mundo';
@@ -12,22 +12,36 @@ function MainCtrl($http) {
       }
   vm.feedSrc = 'http://ep00.epimg.net/rss/elpais/portada.xml';
 
-    vm.loadFeed = function(e){        
-      vm.Feed(vm.feedSrc)
-            .then(function(res){
-                // vm.loadBtnText = angular.element(e.target).text();
-                 vm.feeds = res.data.responseData.feed.entries;
-                 console.info(vm.feeds);
-            });
-      };
-    vm.loadFeed();  
-    setInterval(vm.loadFeed, 50000);  
-       
-  }
-    
+  vm.load = function(e){
+    //--------------------------------------------------------------------------
+    vm.Feed(vm.feedSrc)
+          .then(function(res){
+              // vm.loadBtnText = angular.element(e.target).text();
+               vm.feeds = res.data.responseData.feed.entries;
+              // console.info(vm.feeds);
+          });
+    //--------------------------------------------------------------------------
+    Enlace
+       .find({})
+       .$promise
+       .then(function(data){
+          for (var i = 0; i < data.length; i++) {
+             if (data[i].screen && data[i].id_espejo === "001"){
+                vm.vissible = 'visibility';
+             }else{
+                vm.vissible = 'hidden';
+             }
+          }
+       })
+   };
+    vm.load();
 
-angular.module('app', [])
-       .controller('mainCtrl',['$http', MainCtrl]);
+    setInterval(vm.load, 500);
+
+  }
+
+
+angular.module('app.controllers', [])
+       .controller('mainCtrl',['$http','Enlace', MainCtrl]);
 
 })();
-
