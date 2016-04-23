@@ -8,8 +8,13 @@
   },
   "properties": {
     "status": {
-      "type": "string",
+      "type": "boolean",
       "required": true
+    },
+    "seconds": {
+      "type": "number",
+      "required": false,
+      "default": 30000
     }
   },
   "validations": [],
