@@ -22,6 +22,12 @@
     "fecha": {
       "type": "date",
       "required": true
+    },
+    "id": {
+      "type": "string",
+      "id": true,
+      "required": true,
+      "index": true
     }
   },
   "validations": [],
