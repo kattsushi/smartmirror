@@ -11,10 +11,15 @@
       "type": "string",
       "required": true
     },
+    "comentario": {
+      "type": "string"
+    },
+    "status": {
+      "type": "boolean",
+      "default": true
+    },
     "id": {
       "type": "string",
-      "id": true,
-      "required": true,
       "index": true
     }
   },

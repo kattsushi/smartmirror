@@ -14,7 +14,6 @@
     "id": {
       "type": "string",
       "id": true,
-      "required": true,
       "index": true
     }
   },
