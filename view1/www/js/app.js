@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('app', ['ionic', 'routes'])
+angular.module('app', ['ionic', 'routes','app.controllers', 'lbServices'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -22,3 +22,10 @@ angular.module('app', ['ionic', 'routes'])
     }
   });
 })
+.config(['LoopBackResourceProvider', function (LoopBackResourceProvider) {
+
+        LoopBackResourceProvider.setUrlBase('http://10.0.0.120:3000/api');
+        //console.info(user);
+
+        LoopBackResourceProvider.setAuthHeader('X-Access-Token');
+}]);
