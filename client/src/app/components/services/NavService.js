@@ -10,19 +10,14 @@
   function navService($q){
     var menuItems = [
       {
-        name: 'Dashboard',
+        name: 'Smart-Mirror',
         icon: 'dashboard',
         sref: '.dashboard'
       },
       {
-        name: 'Profile',
-        icon: 'person',
+        name: 'Admin-Mirror',
+        icon: 'dns',
         sref: '.profile'
-      },
-      {
-        name: 'Table',
-        icon: 'view_module',
-        sref: '.table'
       }
     ];
 

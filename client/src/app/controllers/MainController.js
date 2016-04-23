@@ -15,8 +15,6 @@
     vm.toggleItemsList = toggleItemsList;
     vm.showActions = showActions;
     vm.title = $state.current.data.title;
-    vm.showSimpleToast = showSimpleToast;
-    vm.toggleRightSidebar = toggleRightSidebar;
 
     navService
       .loadAllItems()
@@ -24,9 +22,6 @@
         vm.menuItems = [].concat(menuItems);
       });
 
-    function toggleRightSidebar() {
-        $mdSidenav('right').toggle();
-    }
 
     function toggleItemsList() {
       var pending = $mdBottomSheet.hide() || $q.when(true);

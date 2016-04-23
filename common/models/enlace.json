@@ -1,0 +1,24 @@
+{
+  "name": "enlace",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "status": {
+      "type": "boolean",
+      "required": true
+    },
+    "seconds": {
+      "type": "number",
+      "required": false,
+      "default": 30000
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

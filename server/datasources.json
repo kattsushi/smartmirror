@@ -2,14 +2,5 @@
   "db": {
     "name": "db",
     "connector": "memory"
-  },
-  "mongodb": {
-    "host": "10.0.0.40",
-    "port": 27017,
-    "database": "smartmirror",
-    "password": "123456789",
-    "name": "mongodb",
-    "user": "Usersmartmirror",
-    "connector": "mongodb"
   }
 }
