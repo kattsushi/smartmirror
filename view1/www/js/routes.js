@@ -8,13 +8,12 @@ angular.module('routes', [])
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
-  $stateProvider
-  .state('main', {
-    url: '/main',
-    templateUrl: 'templates/main.html',
-    controller: 'mainCtrl as vm'
-  });
+  // $stateProvider
+  // .state('main', {
+  //   url: '/',
+  //   controller: 'mainCtrl as vm'
+  // });
 
-  $urlRouterProvider.otherwise('/main');
+  $urlRouterProvider.otherwise('/');
 
 });
