@@ -6,10 +6,10 @@ function MainCtrl($http, $scope) {
 
 	vm.location = '';
    setInterval(function () {
-      $http.get('http://10.0.0.124:3000/api/enlaces', {id:1}).
+      $http.get('http://10.0.0.120:3000/api/enlaces', {id:1}).
       success(function(data){
          console.log(data);
-         if (data[0].status){
+         if (data[0].screen && data[0].id_espejo === "001"){
             vm.vissible = 'visibility';
          }else{
             vm.vissible = 'hidden';

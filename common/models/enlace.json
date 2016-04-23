@@ -7,14 +7,35 @@
     "validateUpsert": true
   },
   "properties": {
-    "status": {
+    "screen": {
       "type": "boolean",
-      "required": true
+      "required": true,
+      "default": false
     },
-    "seconds": {
+    "timeoff": {
       "type": "number",
-      "required": false,
-      "default": 30000
+      "default": 60
+    },
+    "port": {
+      "type": "number",
+      "default": 3000
+    },
+    "update": {
+      "type": "boolean",
+      "default": false
+    },
+    "ip": {
+      "type": "string",
+      "default": "10.0.0.120"
+    },
+    "id_espejo": {
+      "type": "string",
+      "required": true,
+      "default": "001"
+    },
+    "interval": {
+      "type": "number",
+      "default": 1000
     }
   },
   "validations": [],
