@@ -12,12 +12,15 @@
          .find({})
          .$promise
          .then(function(data){
+            vm.sections = [];
             for (var i = 0; i < data.length; i++) {
                if (data[i].screen && data[i].id_espejo === "001"){
                   vm.vissible = 'visibility';
                }else{
                   vm.vissible = 'hidden';
                }
+               vm.sections.push(data);
+               console.log(data);
             }
          })
       }, 500);

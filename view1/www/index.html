@@ -7,7 +7,6 @@
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/110131/weather-icons.css">
     <link href='https://fonts.googleapis.com/css?family=Krona+One' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,600' rel='stylesheet' type='text/css'>
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
@@ -38,7 +37,7 @@
       <h2 class="loading">Loading...</h2>
 
       <div ng-if="vm.weatherData.name"
-           class="card back">.
+           class="card back">
            <div class="row">
           <div class="col col-70">
               <h2 id="temp">{{vm.weatherData.main.temp - 273 | number:0}}&deg;C</h2>{{vm.weatherData.weather[0].main}}: {{vm.weatherData.weather[0].description}}</p>

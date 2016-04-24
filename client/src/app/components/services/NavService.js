@@ -17,7 +17,7 @@
       {
         name: 'Admin-Mirror',
         icon: 'dns',
-        sref: '.profile'
+        sref: '.admin'
       }
     ];
 

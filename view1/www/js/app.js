@@ -1,5 +1,5 @@
 (function() {
-  
+
     angular.module('app', ['ionic', 'routes','app.controllers', 'lbServices'])
 
     .run(function($ionicPlatform) {
@@ -21,7 +21,7 @@
     })
     .config(['LoopBackResourceProvider', function (LoopBackResourceProvider) {
 
-            LoopBackResourceProvider.setUrlBase('http://10.0.0.120:3000/api');
+            LoopBackResourceProvider.setUrlBase('http://10.0.0.120:3001/api');
             //console.info(user);
 
             LoopBackResourceProvider.setAuthHeader('X-Access-Token');
