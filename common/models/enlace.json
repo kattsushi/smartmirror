@@ -40,6 +40,12 @@
     "dir": {
       "type": "number",
       "default": 0
+    },
+    "view": {
+      "type": "number"
+    },
+    "description": {
+      "type": "string"
     }
   },
   "validations": [],
