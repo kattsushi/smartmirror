@@ -3,11 +3,14 @@
   angular
        .module('app')
        .controller('MainController', [
-          'navService', '$mdSidenav', '$mdBottomSheet', '$log', '$q', '$state', '$mdToast',
+                                      'navService', '$mdSidenav',
+                                      '$mdBottomSheet', '$log', '$q', '$state',
+                                      '$mdToast', 'Enlace',
           MainController
        ]);
 
-  function MainController(navService, $mdSidenav, $mdBottomSheet, $log, $q, $state, $mdToast) {
+  function MainController(navService, $mdSidenav, $mdBottomSheet,
+                          $log, $q, $state, $mdToast, Enlace) {
     var vm = this;
 
     vm.menuItems = [ ];
@@ -72,5 +75,20 @@
       );
     }
   }
+  //----------------------------------------------------------------------------
+  vm.sections = [];
+  Enlace
+     .find({filter:{where:{id_espejo:"001"}}})
+     .$promise
+     .then(function(data){
+        for (var i = 0; i < data.length; i++) {
+           
+        }
+     });
+
+
+
+
+
 
 })();
