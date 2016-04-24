@@ -3,8 +3,16 @@
 angular.module('angularMaterialAdmin', ['ngAnimate', 'ngCookies', 'ngTouch',
   'ngSanitize', 'ui.router', 'ngMaterial','nvd3', 'app','lbServices'])
 
-  .config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider,
-                    $mdIconProvider) {
+  .config(['$stateProvider', '$urlRouterProvider', '$mdThemingProvider',
+                   '$mdIconProvider','LoopBackResourceProvider',
+   function ($stateProvider, $urlRouterProvider, $mdThemingProvider,
+                    $mdIconProvider, LoopBackResourceProvider) {
+
+    LoopBackResourceProvider
+        .setUrlBase('http://localhost:3001/api');
+    LoopBackResourceProvider
+        .setAuthHeader('X-Access-Token');
+
     $stateProvider
       .state('home', {
         url: '',
@@ -83,4 +91,4 @@ angular.module('angularMaterialAdmin', ['ngAnimate', 'ngCookies', 'ngTouch',
     });
 
     $mdIconProvider.icon('user', 'assets/images/user.svg', 64);
-  });
+  }]);
