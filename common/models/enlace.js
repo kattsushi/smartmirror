@@ -43,7 +43,7 @@ Enlace.Event = function (status, id_espejo, cb) {
 
 };
 
-    //
+    //Evento que se comunica con detector de rostros
     Enlace.remoteMethod('Event', {
 
           accepts: [
@@ -58,4 +58,24 @@ Enlace.Event = function (status, id_espejo, cb) {
           http: {path:'/Event', verb: 'get'}
 
       });
+
+      //Función de metodo remoto para la generación de imagen
+      Enlace.Image = function (imageUrl, cb) {
+
+        console.log(imageUrl);
+        cb(null,true);
+
+      };
+
+      //Generar Logo
+      Enlace.remoteMethod('Image', {
+
+            accepts: [
+              {arg: 'imageUrl', type: 'string'}
+            ],
+            returns: [{arg: 'success', type: 'boolean'}],
+            http: {path:'/Image', verb: 'post'}
+
+        });
+
 };
