@@ -46,6 +46,15 @@
     },
     "description": {
       "type": "string"
+    },
+    "coment": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "logo": {
+      "type": "string"
     }
   },
   "validations": [],
@@ -53,7 +62,7 @@
     "hPersonas": {
       "type": "hasMany",
       "model": "hPersona",
-      "foreignKey": ""
+      "foreignKey": "fkEnlaceId"
     }
   },
   "acls": [],
