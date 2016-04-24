@@ -17,10 +17,20 @@
     "status": {
       "type": "boolean",
       "default": true
+    },
+    "fkEnlaceId": {
+      "type": "string",
+      "required": true
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "enlace": {
+      "type": "belongsTo",
+      "model": "enlace",
+      "foreignKey": "fkEnlaceId"
+    }
+  },
   "acls": [],
   "methods": {}
 }
