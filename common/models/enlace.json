@@ -59,11 +59,6 @@
   },
   "validations": [],
   "relations": {
-    "hPersonas": {
-      "type": "hasMany",
-      "model": "hPersona",
-      "foreignKey": "fkEnlaceId"
-    }
   },
   "acls": [],
   "methods": {}
