@@ -13,10 +13,6 @@
     "nombre": {
       "type": "string",
       "required": true
-    },
-    "id": {
-      "type": "string",
-      "index": true
     }
   },
   "validations": [],

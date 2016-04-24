@@ -17,10 +17,6 @@
     "status": {
       "type": "boolean",
       "default": true
-    },
-    "id": {
-      "type": "string",
-      "index": true
     }
   },
   "validations": [],
