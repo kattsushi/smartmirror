@@ -37,8 +37,8 @@
     function selectItem (item) {
       vm.title = item.name;
       vm.toggleItemsList();
-      vm.showSimpleToast(vm.title);
-    }
+
+        }
 
     function showActions($event) {
         $mdBottomSheet.show({
@@ -82,6 +82,7 @@
        .then(function(data){
           for (var i = 0; i < data.length; i++) {
             vm.sections.push(data[i]);
+
           }
        });
    }
