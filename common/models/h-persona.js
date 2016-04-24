@@ -1,5 +1,5 @@
 module.exports = function(HPersona) {
-
+/*
   //Hooks que se encarga de apagar(false) todos los status de un idespejo para quede activo el que esta proximo a crear
   HPersona.observe('before save', function (ctx, next) {
     console.log(ctx.instance);
@@ -18,5 +18,5 @@ module.exports = function(HPersona) {
       next();
     }
 });
-
+*/
 };
