@@ -1,15 +1,16 @@
 <div layout-gt-md="row">
   <md-card md-theme="{{ showDarkTheme ? 'dark-orange' : 'default' }}"
-           md-theme-watch >
+           md-theme-watch
+           ng-repeat="section in vm.sections">
         <md-card-title>
           <md-card-title-text>
-            <span class="md-headline">Card with image</span>
-            <span class="md-subhead">Extra Large</span>
+            <span class="md-headline">View {{section.view}}</span>
+            <span class="md-subhead">Description : {{section.description}}</span>
           </md-card-title-text>
         </md-card-title>
         <md-card-content layout="row" layout-align="space-between">
           <div class="md-media-xl card-media" style="min-width: 4em;">
-            {{}}
+            {{vm.sections | json}}
           </div>
           <md-card-actions layout="column">
             <md-button class="md-icon-button" aria-label="Favorite">
