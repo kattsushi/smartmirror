@@ -1,5 +1,15 @@
 <!-- TODO: Add validations -->
 <md-content md-theme="dark" class="md-padding" layout="row" layout-sm="column">
+    <div class="md-whiteframe-8dp layout-padding">
+        <md-switch class="md-primary"
+                   md-no-ink aria-label="Switch No Ink"
+                   ng-model="vm.data.cb1"
+                   ng-change="onChange(vm.data.cb1)">
+            Switch SmartMirror {{vm.message}}
+        </md-switch>
+    </div>
+
+
     <md-input-container>
         <label>Username</label>
         <input ng-model="vm.user.title">

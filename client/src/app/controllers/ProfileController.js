@@ -9,6 +9,15 @@
   function ProfileController() {
     var vm = this;
 
+    vm.data = {
+    cb1: true
+    };
+    vm.message = 'false';
+    vm.onChange = function(cbState) {
+    	vm.message = cbState;
+      console.log(cbState);
+    };
+
     vm.user = {
       title: 'Admin',
       email: 'contact@flatlogic.com',
