@@ -17,6 +17,7 @@
         if(window.StatusBar) {
           StatusBar.styleDefault();
         }
+        ionic.Platform.fullScreen();
       });
     })
     .config(['LoopBackResourceProvider', function (LoopBackResourceProvider) {
