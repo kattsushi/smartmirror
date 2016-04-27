@@ -62,9 +62,10 @@ Enlace.Event = function (status, id_espejo, cb) {
       //Función de metodo remoto para la generación de imagen
       Enlace.Image = function (imageUrl, cb) {
 
-        console.log(imageUrl);
-        cb(null,true);
+        //console.log(imageUrl);
+        //cb(null,true);
 
+    
       };
 
       //Generar Logo
