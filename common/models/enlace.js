@@ -62,10 +62,15 @@ Enlace.Event = function (status, id_espejo, cb) {
       //Función de metodo remoto para la generación de imagen
       Enlace.Image = function (imageUrl, cb) {
 
-        //console.log(imageUrl);
-        //cb(null,true);
+        console.log(imageUrl);
 
-    
+        var fs = require('fs');
+        var file = "logo.jpg";
+          // create buffer object from base64 encoded string, it is important to tell the constructor that the string is base64 encoded
+        var bitmap = new Buffer(imageUrl, 'base64');
+        // write buffer to file
+        fs.writeFileSync(file, bitmap);
+
       };
 
       //Generar Logo
