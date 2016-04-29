@@ -102,6 +102,70 @@
              <p class="info">
 
 
+               ----------------
+
+               <!-- Dia -->
+               <i ng-if="vm.weatherData.weather[0].id == 800 && vm.weatherData.dt < vm.weatherData.sys.sunset"
+                  class="wu icon ion-ios-partlysunny"></i>
+
+               <!-- Noche -->
+               <i ng-if="vm.weatherData.weather[0].id == 800 && vm.weatherData.dt > vm.weatherData.sys.sunset"
+                  class="wu icon ion-ios-cloudy-night"></i>
+
+
+               <i ng-if="vm.weatherData.weather[0].id >= 801 && vm.weatherData.weather[0].id <= 804 && vm.weatherData.dt < vm.weatherData.sys.sunset && vm.weatherData.clouds.all < 50"
+                  class="wu icon ion-ios-cloudy-night"></i>
+
+                <i ng-if="vm.weatherData.weather[0].id >= 801 && vm.weatherData.weather[0].id <= 804 && vm.weatherData.dt < vm.weatherData.sys.sunset && vm.weatherData.clouds.all < 50"
+                  class="wu icon ion-ios-partlysunny" ></i>
+
+               <i ng-if="vm.weatherData.weather[0].id >= 801 && vm.weatherData.weather[0].id <= 804 && vm.weatherData.dt > vm.weatherData.sys.sunset && weatherData.clouds.all < 50"
+                  class="wu icon ion-ios-cloudy-night"></i>
+
+
+
+               <i ng-if="vm.weatherData.weather[0].id >= 801 && vm.weatherData.weather[0].id <= 804 && vm.weatherData.clouds.all >= 50"    class="wu icon ion-ios-cloud"></i>
+
+               <!-- Nevado -->
+               <i ng-if="vm.weatherData.weather[0].id >= 300 && vm.weatherData.weather[0].id <= 321 && vm.weatherData.dt < vm.weatherData.sys.sunset && vm.weatherData.clouds.all < 50"
+               class="wu icon ion-ios-rainy"></i>
+
+               <i ng-if="vm.weatherData.weather[0].id >= 300 && vm.weatherData.weather[0].id <= 321 && vm.weatherData.dt > vm.weatherData.sys.sunset && weatherData.clouds.all < 50"
+               class="wu icon ion-ios-rainy-outline"></i>
+
+               <i ng-if="vm.weatherData.weather[0].id >= 300 && vm.vm.weatherData.weather[0].id <= 321 && vm.weatherData.clouds.all >= 50"
+                  class="wu icon ion-ios-thunderstorm"></i>
+
+               <!-- Lluvioso -->
+               <i ng-if="vm.weatherData.weather[0].id >= 500 && vm.weatherData.weather[0].id <= 531 && vm.weatherData.dt < vm.weatherData.sys.sunset && weatherData.clouds.all < 50"
+               class="wu icon ion-ios-rainy"></i>
+
+               <i ng-if="vm.weatherData.weather[0].id >= 500 && vm.weatherData.weather[0].id <= 531 && vm.weatherData.dt > vm.weatherData.sys.sunset && weatherData.clouds.all < 50"
+               class="wu icon ion-ios-thunderstorm"></i>
+
+               <i ng-if="vm.weatherData.weather[0].id >= 500 && vm.weatherData.weather[0].id <= 531 && vm.weatherData.clouds.all >= 50"
+               class="wu icon ion-ios-rainy-outline"></i>
+
+               <!-- Nevado -->
+               <i ng-if="vm.weatherData.weather[0].id >= 600 && vm.weatherData.weather[0].id <= 622 && vm.weatherData.dt < vm.weatherData.sys.sunset && weatherData.clouds.all < 50"
+               class="wu icon ion-ios-snowy"></i>
+
+               <i ng-if="vm.weatherData.weather[0].id >= 600 && vm.weatherData.weather[0].id <= 622 && vm.weatherData.dt > vm.weatherData.sys.sunset && weatherData.clouds.all < 50"
+               class="wu icon ion-ios-snowy"></i>
+
+               <i ng-if="vm.weatherData.weather[0].id >= 600 && vm.weatherData.weather[0].id <= 622 && vm.weatherData.clouds.all >= 50"
+               class="wu icon ion-ios-snowy"></i>
+
+               <!-- Tormenta Electrica -->
+               <i ng-if="vm.weatherData.weather[0].id >= 200 && vm.weatherData.weather[0].id <= 232 && vm.weatherData.dt < vm.weatherData.sys.sunset && vm.weatherData.clouds.all < 50" class="wi wi-day-thunderstorm"></i>
+
+               <i ng-if="vm.weatherData.weather[0].id >= 200 && vm.weatherData.weather[0].id <= 232 && vm.weatherData.dt > vm.weatherData.sys.sunset && vm.weatherData.clouds.all < 50"
+               class="wu icon ion-ios-thunderstorm-outline"></i>
+
+               <i ng-if="vm.weatherData.weather[0].id >= 200 && vm.weatherData.weather[0].id <= 232 && vm.weatherData.clouds.all >= 50" class="wu icon ion-ios-thunderstorm-outline"></i>
+              <p class="info">
+
+
               <h2>{{vm.weatherData.name}}, {{vm.weatherData.sys.country}}</h2>
             </div
             </div>

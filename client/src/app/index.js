@@ -9,7 +9,7 @@ angular.module('angularMaterialAdmin', ['ngAnimate', 'ngCookies', 'ngTouch',
                     $mdIconProvider, LoopBackResourceProvider) {
 
     LoopBackResourceProvider
-        .setUrlBase('http://localhost:3001/api');
+        .setUrlBase('http://10.0.0.121:3001/api');
     LoopBackResourceProvider
         .setAuthHeader('X-Access-Token');
 

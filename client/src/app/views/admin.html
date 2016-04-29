@@ -50,7 +50,14 @@
               <md-input-container flex>
                 <label class="md-display-1">Message to Guest</label>
                 <input  ng-model="vm.guestMessage">
-              </md-input-container>
+            </md-input-container>
+                <md-input-container>
+                    <form action="http://10.0.0.121:3001/imagen" method="post" enctype="multipart/form-data">
+                        <i class="material-icons">file_upload</i>
+                        <input id="file_input_file" class="none" name="photo" type="file" style="{margin: auto;width: 250px;height: 40px;}" />
+                        <md-button class="md-raised md-primary" type="submit">Upload</md-button>
+                    </form>
+                </md-input-container>
             </md-content>
           </md-tab>
           <md-tab label="View Mirror {{vm.sections[1].view}}">
