@@ -84,6 +84,7 @@
             vm.sections.push(data[i]);
 
           }
+          console.log(vm.sections);
        });
    }
 })();

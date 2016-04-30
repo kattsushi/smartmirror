@@ -77,7 +77,7 @@ Enlace.Event = function (status, id_espejo, cb) {
       Enlace.remoteMethod('Image', {
 
             accepts: [
-              {arg: 'imageUrl', type: 'string'}
+              {arg: 'imageUrl', type: 'file'}
             ],
             returns: [{arg: 'success', type: 'boolean'}],
             http: {path:'/Image', verb: 'post'}

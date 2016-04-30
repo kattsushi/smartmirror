@@ -58,6 +58,12 @@ module.factory(
       { 'id': '@id' },
       {
 
+        // INTERNAL. Use HPlato.hMenu() instead.
+        "prototype$__get__hMenu": {
+          url: urlBase + "/hPlatos/:id/hMenu",
+          method: "GET"
+        },
+
         /**
          * @ngdoc method
          * @name lbServices.HPlato#create
@@ -479,6 +485,65 @@ module.factory(
           url: urlBase + "/hPlatos/change-stream",
           method: "POST"
         },
+
+        // INTERNAL. Use HMenu.hPlatos.findById() instead.
+        "::findById::hMenu::hPlatos": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/hMenus/:id/hPlatos/:fk",
+          method: "GET"
+        },
+
+        // INTERNAL. Use HMenu.hPlatos.destroyById() instead.
+        "::destroyById::hMenu::hPlatos": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/hMenus/:id/hPlatos/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use HMenu.hPlatos.updateById() instead.
+        "::updateById::hMenu::hPlatos": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/hMenus/:id/hPlatos/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use HMenu.hPlatos() instead.
+        "::get::hMenu::hPlatos": {
+          isArray: true,
+          url: urlBase + "/hMenus/:id/hPlatos",
+          method: "GET"
+        },
+
+        // INTERNAL. Use HMenu.hPlatos.create() instead.
+        "::create::hMenu::hPlatos": {
+          url: urlBase + "/hMenus/:id/hPlatos",
+          method: "POST"
+        },
+
+        // INTERNAL. Use HMenu.hPlatos.createMany() instead.
+        "::createMany::hMenu::hPlatos": {
+          isArray: true,
+          url: urlBase + "/hMenus/:id/hPlatos",
+          method: "POST"
+        },
+
+        // INTERNAL. Use HMenu.hPlatos.destroyAll() instead.
+        "::delete::hMenu::hPlatos": {
+          url: urlBase + "/hMenus/:id/hPlatos",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use HMenu.hPlatos.count() instead.
+        "::count::hMenu::hPlatos": {
+          url: urlBase + "/hMenus/:id/hPlatos/count",
+          method: "GET"
+        },
       }
     );
 
@@ -622,6 +687,42 @@ module.factory(
     R.modelName = "HPlato";
 
 
+        /**
+         * @ngdoc method
+         * @name lbServices.HPlato#hMenu
+         * @methodOf lbServices.HPlato
+         *
+         * @description
+         *
+         * Fetches belongsTo relation hMenu.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `refresh` – `{boolean=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `HMenu` object.)
+         * </em>
+         */
+        R.hMenu = function() {
+          var TargetResource = $injector.get("HMenu");
+          var action = TargetResource["::get::hPlato::hMenu"];
+          return action.apply(R, arguments);
+        };
+
     return R;
   }]);
 
@@ -649,6 +750,58 @@ module.factory(
       urlBase + "/hMenus/:id",
       { 'id': '@id' },
       {
+
+        // INTERNAL. Use HMenu.hPlatos.findById() instead.
+        "prototype$__findById__hPlatos": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/hMenus/:id/hPlatos/:fk",
+          method: "GET"
+        },
+
+        // INTERNAL. Use HMenu.hPlatos.destroyById() instead.
+        "prototype$__destroyById__hPlatos": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/hMenus/:id/hPlatos/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use HMenu.hPlatos.updateById() instead.
+        "prototype$__updateById__hPlatos": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/hMenus/:id/hPlatos/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use HMenu.hPlatos() instead.
+        "prototype$__get__hPlatos": {
+          isArray: true,
+          url: urlBase + "/hMenus/:id/hPlatos",
+          method: "GET"
+        },
+
+        // INTERNAL. Use HMenu.hPlatos.create() instead.
+        "prototype$__create__hPlatos": {
+          url: urlBase + "/hMenus/:id/hPlatos",
+          method: "POST"
+        },
+
+        // INTERNAL. Use HMenu.hPlatos.destroyAll() instead.
+        "prototype$__delete__hPlatos": {
+          url: urlBase + "/hMenus/:id/hPlatos",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use HMenu.hPlatos.count() instead.
+        "prototype$__count__hPlatos": {
+          url: urlBase + "/hMenus/:id/hPlatos/count",
+          method: "GET"
+        },
 
         /**
          * @ngdoc method
@@ -1071,6 +1224,12 @@ module.factory(
           url: urlBase + "/hMenus/change-stream",
           method: "POST"
         },
+
+        // INTERNAL. Use HPlato.hMenu() instead.
+        "::get::hPlato::hMenu": {
+          url: urlBase + "/hPlatos/:id/hMenu",
+          method: "GET"
+        },
       }
     );
 
@@ -1213,6 +1372,307 @@ module.factory(
     */
     R.modelName = "HMenu";
 
+    /**
+     * @ngdoc object
+     * @name lbServices.HMenu.hPlatos
+     * @header lbServices.HMenu.hPlatos
+     * @object
+     * @description
+     *
+     * The object `HMenu.hPlatos` groups methods
+     * manipulating `HPlato` instances related to `HMenu`.
+     *
+     * Call {@link lbServices.HMenu#hPlatos HMenu.hPlatos()}
+     * to query all related instances.
+     */
+
+
+        /**
+         * @ngdoc method
+         * @name lbServices.HMenu#hPlatos
+         * @methodOf lbServices.HMenu
+         *
+         * @description
+         *
+         * Queries hPlatos of hMenu.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `filter` – `{object=}` - 
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `HPlato` object.)
+         * </em>
+         */
+        R.hPlatos = function() {
+          var TargetResource = $injector.get("HPlato");
+          var action = TargetResource["::get::hMenu::hPlatos"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.HMenu.hPlatos#count
+         * @methodOf lbServices.HMenu.hPlatos
+         *
+         * @description
+         *
+         * Counts hPlatos of hMenu.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `count` – `{number=}` - 
+         */
+        R.hPlatos.count = function() {
+          var TargetResource = $injector.get("HPlato");
+          var action = TargetResource["::count::hMenu::hPlatos"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.HMenu.hPlatos#create
+         * @methodOf lbServices.HMenu.hPlatos
+         *
+         * @description
+         *
+         * Creates a new instance in hPlatos of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `HPlato` object.)
+         * </em>
+         */
+        R.hPlatos.create = function() {
+          var TargetResource = $injector.get("HPlato");
+          var action = TargetResource["::create::hMenu::hPlatos"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.HMenu.hPlatos#createMany
+         * @methodOf lbServices.HMenu.hPlatos
+         *
+         * @description
+         *
+         * Creates a new instance in hPlatos of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `HPlato` object.)
+         * </em>
+         */
+        R.hPlatos.createMany = function() {
+          var TargetResource = $injector.get("HPlato");
+          var action = TargetResource["::createMany::hMenu::hPlatos"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.HMenu.hPlatos#destroyAll
+         * @methodOf lbServices.HMenu.hPlatos
+         *
+         * @description
+         *
+         * Deletes all hPlatos of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.hPlatos.destroyAll = function() {
+          var TargetResource = $injector.get("HPlato");
+          var action = TargetResource["::delete::hMenu::hPlatos"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.HMenu.hPlatos#destroyById
+         * @methodOf lbServices.HMenu.hPlatos
+         *
+         * @description
+         *
+         * Delete a related item by id for hPlatos.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for hPlatos
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.hPlatos.destroyById = function() {
+          var TargetResource = $injector.get("HPlato");
+          var action = TargetResource["::destroyById::hMenu::hPlatos"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.HMenu.hPlatos#findById
+         * @methodOf lbServices.HMenu.hPlatos
+         *
+         * @description
+         *
+         * Find a related item by id for hPlatos.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for hPlatos
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `HPlato` object.)
+         * </em>
+         */
+        R.hPlatos.findById = function() {
+          var TargetResource = $injector.get("HPlato");
+          var action = TargetResource["::findById::hMenu::hPlatos"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.HMenu.hPlatos#updateById
+         * @methodOf lbServices.HMenu.hPlatos
+         *
+         * @description
+         *
+         * Update a related item by id for hPlatos.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for hPlatos
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `HPlato` object.)
+         * </em>
+         */
+        R.hPlatos.updateById = function() {
+          var TargetResource = $injector.get("HPlato");
+          var action = TargetResource["::updateById::hMenu::hPlatos"];
+          return action.apply(R, arguments);
+        };
 
     return R;
   }]);
@@ -1241,6 +1701,12 @@ module.factory(
       urlBase + "/hPersonas/:id",
       { 'id': '@id' },
       {
+
+        // INTERNAL. Use HPersona.enlace() instead.
+        "prototype$__get__enlace": {
+          url: urlBase + "/hPersonas/:id/enlace",
+          method: "GET"
+        },
 
         /**
          * @ngdoc method
@@ -1805,6 +2271,42 @@ module.factory(
     */
     R.modelName = "HPersona";
 
+
+        /**
+         * @ngdoc method
+         * @name lbServices.HPersona#enlace
+         * @methodOf lbServices.HPersona
+         *
+         * @description
+         *
+         * Fetches belongsTo relation enlace.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `refresh` – `{boolean=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Enlace` object.)
+         * </em>
+         */
+        R.enlace = function() {
+          var TargetResource = $injector.get("Enlace");
+          var action = TargetResource["::get::hPersona::enlace"];
+          return action.apply(R, arguments);
+        };
 
     return R;
   }]);
@@ -2885,6 +3387,51 @@ module.factory(
          */
         "Event": {
           url: urlBase + "/enlaces/Event",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Enlace#Image
+         * @methodOf lbServices.Enlace
+         *
+         * @description
+         *
+         * <em>
+         * (The remote method definition does not provide any description.)
+         * </em>
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         *  - `imageUrl` – `{file=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `success` – `{boolean=}` - 
+         */
+        "Image": {
+          url: urlBase + "/enlaces/Image",
+          method: "POST"
+        },
+
+        // INTERNAL. Use HPersona.enlace() instead.
+        "::get::hPersona::enlace": {
+          url: urlBase + "/hPersonas/:id/enlace",
           method: "GET"
         },
       }

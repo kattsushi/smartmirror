@@ -3,14 +3,18 @@ module.exports = function(server) {
   var router = server.loopback.Router();
   router.get('/', server.loopback.status());
 
-  router.post("/imagen",function (req,res){
-    var fs = require("fs");
-    //console.log(req);
-    console.log(req.body);
-    //console.log(req.files);
+  var fs = require("fs");
+
+  router.post("/imagen",function (req, res){
+
+    var tmp_path = req.body;
+    console.log(tmp_path);
+
+    // //console.log(req);
+    // console.log(req.body);
+    // //console.log(req.files);
     res.send('El fichero que deseas subir no es una imagen');
 
-    var tmp_path = req.files.photo.path;
     // Ruta donde colocaremos las imagenes
     var target_path = './image/' + req.files.photo.name;
    // Comprobamos que el fichero es de tipo imagen
