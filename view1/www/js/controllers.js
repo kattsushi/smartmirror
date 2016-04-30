@@ -3,7 +3,7 @@
 'use strict';
    function MainCtrl($http, $scope, Enlace) {
    	var vm = this;
-
+      vm.urlImg = 'http://localhost:3001/assets/images/';
    	vm.location = '';
       console.log('ñ');
 
@@ -15,10 +15,10 @@
             vm.sections = [];
             vm.name = data[0].name;
             vm.coment = data[0].coment;
+            vm.id_espejo = 'http://localhost:3001/assets/images/' + data[0].id_espejo;
             for (var i = 0; i < data.length; i++) {
                if (data[i].screen && data[i].id_espejo === "001"){
                   vm.vissible = 'visibility';
-
                }else{
                   vm.vissible = 'hidden';
                }
