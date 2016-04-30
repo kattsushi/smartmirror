@@ -11,6 +11,7 @@ module.exports = function(server) {
       // console.log('/image');
     },
     filename: function (req, file, callback) {
+      console.log(server.models.enlace.find());
       callback(null, '001.png');
 
     }
