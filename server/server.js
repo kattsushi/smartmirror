@@ -1,5 +1,7 @@
 var loopback = require('loopback');
 var boot = require('loopback-boot');
+var bodyParser = require('body-parser');
+var multer = require('multer');
 
 var app = module.exports = loopback();
 
@@ -23,5 +25,8 @@ boot(app, __dirname, function(err) {
 
   // start the server if `$ node server.js`
   if (require.main === module)
+    app.use(bodyParser.json()); // for parsing application/json
+    app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+    //app.use(multer()); // for parsing multipart/form-data
     app.start();
 });

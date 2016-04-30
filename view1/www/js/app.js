@@ -22,7 +22,7 @@
     })
     .config(['LoopBackResourceProvider', function (LoopBackResourceProvider) {
 
-            LoopBackResourceProvider.setUrlBase('http://10.0.0.120:3001/api');
+            LoopBackResourceProvider.setUrlBase('http://10.0.0.121:3001/api');
             //console.info(user);
 
             LoopBackResourceProvider.setAuthHeader('X-Access-Token');

@@ -13,14 +13,17 @@
          .$promise
          .then(function(data){
             vm.sections = [];
+            vm.name = data[0].name;
+            vm.coment = data[0].coment;
             for (var i = 0; i < data.length; i++) {
                if (data[i].screen && data[i].id_espejo === "001"){
                   vm.vissible = 'visibility';
+
                }else{
                   vm.vissible = 'hidden';
                }
                vm.sections.push(data);
-               console.log(data);
+               // console.log(data);
             }
          })
       }, 500);

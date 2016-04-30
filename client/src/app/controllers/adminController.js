@@ -23,6 +23,16 @@
     vm.data = {
     cb1: true
     };
+    vm.onChangeM = function () {
+      Enlace
+      .updateAll({where: {id_espejo: '001'}},{name:vm.guest, coment: vm.guestMessage})
+      .$promise
+      .then(function (data) {
+        console.log(data);
+      },function (err) {
+          console.log(err);
+      });
+    }
     vm.onChange = function(status) {
        Enlace
        .Event({status: status, id_espejo:"001"})
