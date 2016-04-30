@@ -54,12 +54,11 @@
       "type": "string"
     },
     "logo": {
-      "type": "string"
+      "type": "number"
     }
   },
   "validations": [],
-  "relations": {
-  },
+  "relations": {},
   "acls": [],
   "methods": {}
 }
