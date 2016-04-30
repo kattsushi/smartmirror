@@ -7,21 +7,26 @@ module.exports = function(server) {
 
   var storage =   multer.diskStorage({
     destination: function (req, file, callback) {
-      callback(null, './image');
+      callback(null, __dirname +'/../../client/dist/assets/images');
+      // console.log('/image');
     },
     filename: function (req, file, callback) {
-      callback(null, file.fieldname + '-' + Date.now()+'.png');
+      callback(null, '001.png');
+
     }
   });
 
-  var upload = multer({ storage : storage}).single('photo');
+  var upload = multer({ storage : storage}).single('file');
 
   router.post('/api/photo',function(req,res){
+
       upload(req,res,function(err) {
           if(err) {
               return res.end("Error uploading file.");
           }
-          res.end("File is uploaded");
+          // res.end("File is uploaded");
+          res.jsonp(req.files);
+          // console.log(req.files);
       });
   });
 
