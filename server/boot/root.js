@@ -1,37 +1,28 @@
 module.exports = function(server) {
   // Install a `/` route that returns server status
   var router = server.loopback.Router();
+  var multer  =   require('multer');
+
   router.get('/', server.loopback.status());
 
-  var fs = require("fs");
+  var storage =   multer.diskStorage({
+    destination: function (req, file, callback) {
+      callback(null, './image');
+    },
+    filename: function (req, file, callback) {
+      callback(null, file.fieldname + '-' + Date.now()+'.png');
+    }
+  });
 
-  router.post("/imagen",function (req, res){
+  var upload = multer({ storage : storage}).single('photo');
 
-    var tmp_path = req.body;
-    console.log(tmp_path);
-
-    // //console.log(req);
-    // console.log(req.body);
-    // //console.log(req.files);
-    res.send('El fichero que deseas subir no es una imagen');
-
-    // Ruta donde colocaremos las imagenes
-    var target_path = './image/' + req.files.photo.name;
-   // Comprobamos que el fichero es de tipo imagen
-    if (req.files.photo.type.indexOf('image')==-1){
-                res.send('El fichero que deseas subir no es una imagen');
-    } else {
-         // Movemos el fichero temporal tmp_path al directorio que hemos elegido en target_path
-        fs.rename(tmp_path, target_path, function(err) {
-            if (err) throw err;
-            // Eliminamos el fichero temporal
-            fs.unlink(tmp_path, function() {
-                if (err) throw err;
-                res.render('upload',{message: '/image/' + req.files.photo.name,title: 'ejemplo de subida de imagen por HispaBigData'});
-            });
-         });
-     }
-
+  router.post('/api/photo',function(req,res){
+      upload(req,res,function(err) {
+          if(err) {
+              return res.end("Error uploading file.");
+          }
+          res.end("File is uploaded");
+      });
   });
 
   server.use(router);
