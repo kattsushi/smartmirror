@@ -12,7 +12,24 @@ module.exports = function(server) {
     },
     filename: function (req, file, callback) {
       console.log(server.models.enlace.find());
-      callback(null, '001.png');
+      var Enlace = server.models.enlace;
+
+      Enlace
+      .find({where:{id_espejo: '001'}})
+      .then(function (data) {
+        var logoId = data[0].logo + 1;
+        Enlace
+        .updateAll({id_espejo: '001'},{logo:logoId})
+        .then(function (data) {
+            console.log(data);
+            callback(null, logoId.toString() +'.png');
+        },function (err) {
+            console.log(err);
+        });
+      }, function (err) {
+        console.log(err);
+      });
+
 
     }
   });
