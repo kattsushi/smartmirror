@@ -1,5 +1,5 @@
 {
-  "name": "hPersona",
+  "name": "plato",
   "base": "PersistedModel",
   "strict": false,
   "idInjection": false,
@@ -7,28 +7,20 @@
     "validateUpsert": true
   },
   "properties": {
-    "nombre": {
-      "type": "string",
-      "required": true
-    },
-    "comentario": {
+    "detalle": {
       "type": "string"
     },
-    "status": {
-      "type": "boolean",
-      "default": true
-    },
-    "fkEnlaceId": {
+    "nombre": {
       "type": "string",
       "required": true
     }
   },
   "validations": [],
   "relations": {
-    "enlace": {
+    "hMenu": {
       "type": "belongsTo",
-      "model": "enlace",
-      "foreignKey": "fkEnlaceId"
+      "model": "hMenu",
+      "foreignKey": ""
     }
   },
   "acls": [],
