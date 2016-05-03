@@ -2,7 +2,7 @@
 
   angular
     .module('app')
-    .controller('adminController', ['Enlace','$scope','fileUpload', 
+    .controller('adminController', ['Enlace','$scope','fileUpload',
       ProfileController
     ])
     .directive('fileModel', ['$parse', function ($parse) {
@@ -109,6 +109,33 @@
       'Our focus is JavaScript development and User Interface design.',
       postalCode : '220007'
     };
-  }
+  /*============================================================================
+  ==============================================================================
+  ==============================================================================*/
 
+   vm.todos = [
+     {text:'Make an Angular and Material Design App', done:true},
+     {text:'Learn Github', done:false}];
+
+   vm.addTodo = function() {
+     vm.todos.push({text: vm.todoText, done:false});
+     vm.todoText = '';
+   };
+
+   vm.remaining = function() {
+     var count = 0;
+     angular.forEach(vm.todos, function(todo) {
+       count += todo.done ? 0 : 1;
+     });
+     return count;
+   };
+
+   vm.archive = function() {
+     var oldTodos = vm.todos;
+     vm.todos = [];
+     angular.forEach(oldTodos, function(todo) {
+       if (!todo.done) vm.todos.push(todo);
+     });
+   };
+}
 })();
