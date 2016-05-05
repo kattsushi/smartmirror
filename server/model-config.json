@@ -50,5 +50,11 @@
   "menuDiario": {
     "dataSource": "mongodb",
     "public": true
+  },
+  "fuentes": {
+    "dataSource": "db",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
   }
 }
