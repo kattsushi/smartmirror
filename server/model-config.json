@@ -33,34 +33,22 @@
     "dataSource": "db",
     "public": false
   },
-  "hPlato": {
-    "dataSource": "mongodb",
-    "public": true,
-    "$promise": {},
-    "$resolved": true
-  },
-  "hMenu": {
-    "dataSource": "mongodb",
-    "public": true,
-    "$promise": {},
-    "$resolved": true
-  },
-  "hPersona": {
-    "dataSource": "mongodb",
-    "public": true,
-    "$promise": {},
-    "$resolved": true
-  },
-  "hMenuDiario": {
-    "dataSource": "mongodb",
-    "public": true,
-    "$promise": {},
-    "$resolved": true
-  },
   "enlace": {
     "dataSource": "mongodb",
     "public": true,
     "$promise": {},
     "$resolved": true
+  },
+  "menu": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "plato": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "menuDiario": {
+    "dataSource": "mongodb",
+    "public": true
   }
 }

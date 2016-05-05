@@ -1,5 +1,5 @@
 {
-  "name": "hMenuDiario",
+  "name": "menuDiario",
   "base": "PersistedModel",
   "strict": false,
   "idInjection": false,
@@ -7,20 +7,16 @@
     "validateUpsert": true
   },
   "properties": {
+    "fecha": {
+      "type": "date",
+      "required": true
+    },
     "menu": {
       "type": "string",
       "required": true
     },
     "plato": {
       "type": "string",
-      "required": true
-    },
-    "comida": {
-      "type": "string",
-      "required": true
-    },
-    "fecha": {
-      "type": "date",
       "required": true
     }
   },
