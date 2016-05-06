@@ -7,14 +7,14 @@
     "validateUpsert": true
   },
   "properties": {
-    "clasif": {
+    "status": {
+      "type": "string"
+    },
+    "class": {
       "type": "string",
       "required": false
     },
-    "plato": {
-      "type": "string"
-    },
-    "status": {
+    "dish": {
       "type": "string"
     }
   },
