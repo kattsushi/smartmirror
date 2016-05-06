@@ -115,9 +115,19 @@
 
    vm.dishes = [];
 
+  //  MenuDiario
+  //  .find()
+  //  .$promise
+  //  .then(function (data) {
+  //       vm.dishes = data;
+  //  },function (data) {
+  //     vm.dishes = [];
+  //  });
 
-   vm.addDish = function() {
-     vm.dishes.push({dish: vm.dishText, status :false, class: ''});
+
+   vm.addDish = function(classi) {
+     console.log(classi);
+     vm.dishes.push({dish: vm.dishText, status :false, class: classi});
      vm.dishText = '';
    };
 
