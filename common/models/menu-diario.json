@@ -7,17 +7,15 @@
     "validateUpsert": true
   },
   "properties": {
-    "fecha": {
-      "type": "date",
-      "required": true
-    },
-    "menu": {
+    "clasif": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "plato": {
-      "type": "string",
-      "required": true
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
     }
   },
   "validations": [],
