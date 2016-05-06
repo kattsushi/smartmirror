@@ -7,15 +7,15 @@
     "validateUpsert": true
   },
   "properties": {
-    "status": {
-      "type": "string"
-    },
     "class": {
       "type": "string",
       "required": false
     },
     "dish": {
       "type": "string"
+    },
+    "status": {
+      "type": "boolean"
     }
   },
   "validations": [],
