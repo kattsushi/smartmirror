@@ -113,28 +113,27 @@
   ==============================================================================
   ==============================================================================*/
 
-   vm.todos = [
-     {text:'Make an Angular and Material Design App', done:true},
-     {text:'Learn Github', done:true}];
+   vm.dishes = [];
 
-   vm.addTodo = function() {
-     vm.todos.push({text: vm.todoText, done :false});
-     vm.todoText = '';
+
+   vm.addDish = function() {
+     vm.dishes.push({dish: vm.dishText, status :false, class: ''});
+     vm.dishText = '';
    };
 
    vm.remaining = function() {
      var count = 0;
-     angular.forEach(vm.todos, function(todo) {
-       count += todo.done ? 0 : 1;
+     angular.forEach(vm.dishes, function(dish) {
+       count += dish.status ? 0 : 1;
      });
      return count;
    };
 
    vm.archive = function() {
-     var oldTodos = vm.todos;
+     var oldTodos = vm.dishes;
      vm.todos = [];
-     angular.forEach(oldTodos, function(todo) {
-       if (!todo.done) vm.todos.push(todo);
+     angular.forEach(oldTodos, function(dish) {
+       if (!dish.status) vm.dishes.push(dish);
      });
    };
 }
