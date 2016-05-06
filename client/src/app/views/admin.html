@@ -73,11 +73,11 @@
                        <div flex layout="row" id="mainBody" class="md-whiteframe-8dp layout-padding layout-margin"
                              max-width="450px">
                          <md-content class="md-padding">
-                           <form ng-submit="vm.addTodo()">
+                           <form ng-submit="vm.addDish()">
                              <div layout layout-align-gt-sm="center center">
                                <md-input-container flex="85">
                                  <label>Add breakfast dish</label>
-                                 <input ng-model="vm.todoText" placeholder="Dish">
+                                 <input ng-model="vm.dishText" placeholder="Dish">
                                </md-input-container>
                                <md-input-container>
                                   <md-button type="submit" class="md-fab" aria-label="Add todo items">
@@ -89,13 +89,13 @@
 
                            <div>
                              <div flex layout layout-align="end end" class="listHeader">
-                               {{vm.remaining()}} of {{vm.todos.length}} remaining</span>
+                               {{vm.remaining()}} of {{vm.dishes.length}} remaining</span>
                                [<a href="" ng-click="vm.archive()">Archive</a>]
                              </div>
                              <ul>
-                               <li ng-repeat="todo in vm.todos">
-                                 <md-checkbox ng-model="todo.done" aria-label="Todo Checkbox" ng-init="todo.done=false" >
-                                   {{todo.text}}
+                               <li ng-repeat="dish in vm.dishes">
+                                 <md-checkbox ng-model="dish.status" aria-label="Todo Checkbox" ng-init="dish.status=false" >
+                                   {{dish.dish}}
                                  </md-checkbox>
                                </li>
                              </ul>
@@ -109,11 +109,11 @@
                        <div flex layout="row" id="mainBody" class="md-whiteframe-8dp layout-padding layout-margin"
                              max-width="450px">
                          <md-content class="md-padding">
-                           <form ng-submit="vm.addTodo()">
+                           <form ng-submit="vm.addDish()">
                              <div layout layout-align-gt-sm="center center">
                                <md-input-container flex="85">
                                  <label>Add launch dish</label>
-                                 <input ng-model="vm.todoText" placeholder="Dish">
+                                 <input ng-model="vm.dishText" placeholder="Dish">
                                </md-input-container>
                                <md-input-container>
                                   <md-button type="submit" class="md-fab" aria-label="Add todo items">
@@ -125,13 +125,13 @@
 
                            <div>
                              <div flex layout layout-align="end end" class="listHeader">
-                               {{vm.remaining()}} of {{vm.todos.length}} remaining</span>
+                               {{vm.remaining()}} of {{vm.dishes.length}} remaining</span>
                                [<a href="" ng-click="vm.archive()">Archive</a>]
                              </div>
                              <ul>
-                               <li ng-repeat="todo in vm.todos">
-                                 <md-checkbox ng-model="todo.done" aria-label="Todo Checkbox" ng-init="todo.done=false" >
-                                   {{todo.text}}
+                               <li ng-repeat="dish in vm.dishes">
+                                 <md-checkbox ng-model="dish.status" aria-label="Todo Checkbox" ng-init="dish.status=false" >
+                                   {{dish.dish}}
                                  </md-checkbox>
                                </li>
                              </ul>
@@ -145,11 +145,11 @@
                        <div flex layout="row" id="mainBody" class="md-whiteframe-8dp layout-padding layout-margin"
                              max-width="450px">
                          <md-content class="md-padding">
-                           <form ng-submit="vm.addTodo()">
+                           <form ng-submit="vm.addDish()">
                              <div layout layout-align-gt-sm="center center">
                                <md-input-container flex="85">
                                  <label>Add dinner dish</label>
-                                 <input ng-model="vm.todoText" placeholder="Dish">
+                                 <input ng-model="vm.dishText" placeholder="Dish">
                                </md-input-container>
                                <md-input-container>
                                   <md-button type="submit" class="md-fab" aria-label="Add todo items">
@@ -161,13 +161,13 @@
 
                            <div>
                              <div flex layout layout-align="end end" class="listHeader">
-                               {{vm.remaining()}} of {{vm.todos.length}} remaining</span>
+                               {{vm.remaining()}} of {{vm.dishes.length}} remaining</span>
                                [<a href="" ng-click="vm.archive()">Archive</a>]
                              </div>
                              <ul>
-                               <li ng-repeat="todo in vm.todos">
-                                 <md-checkbox ng-model="todo.done" aria-label="Todo Checkbox" ng-init="todo.done=false" >
-                                   {{todo.text}}
+                               <li ng-repeat="dish in vm.dishes">
+                                 <md-checkbox ng-model="dish.status" aria-label="Todo Checkbox" ng-init="dish.status=false" >
+                                   {{dish.dish}}
                                  </md-checkbox>
                                </li>
                              </ul>
