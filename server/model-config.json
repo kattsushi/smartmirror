@@ -39,17 +39,11 @@
     "$promise": {},
     "$resolved": true
   },
-  "menu": {
-    "dataSource": "mongodb",
-    "public": true
-  },
-  "plato": {
-    "dataSource": "mongodb",
-    "public": true
-  },
   "menuDiario": {
     "dataSource": "mongodb",
-    "public": true
+    "public": true,
+    "$promise": {},
+    "$resolved": true
   },
   "fuentes": {
     "dataSource": "db",
