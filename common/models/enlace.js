@@ -59,7 +59,7 @@ Enlace.Event = function (status, id_espejo, cb) {
 
       });
 
-      //FunciÃ³n de metodo remoto para la generaciÃ³n de imagen
+      //Función de metodo remoto para la generación de imagen
       Enlace.Image = function (imageUrl, cb) {
 
         console.log(imageUrl);
