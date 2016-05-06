@@ -56,6 +56,12 @@ iconos
 }
 
 
+.icon > i  {
+  margin-top: 20px;
+  font-size: 13em;
+}
+
+
 .container, .card.back {
   padding-left: 0;
   margin-left: 0;
@@ -78,7 +84,7 @@ h1 {
 }
 
 #temp {
-	padding-top: 50px;
+	padding-top: 15px;
 }
 
 h2, .city {
@@ -169,7 +175,9 @@ input {
 
 
 
-
+.icon > h2 {
+  font-size: 6em;
+}
 
 /*============================================================================*/
 /*!

@@ -44,15 +44,14 @@
            <div class="row">
           <div class="col col-70">
 
+            <!-- <img src="img/veneturnegro.jpg" alt="" id="logo" /> -->
+            <img ng-src="{{vm.id_espejo}}" alt="" id="logo" />
               <!-- -->
              <h2 id="clock">{{ clock }}</h2>
             <div class="date">{{ date }}</div>
 
-            <i ng-if="vm.weatherData.weather[0].id >= 701 && vm.weatherData.weather[0].id <= 781" class="wi wi-fog"></i>
-            <h2 id="temp">{{vm.weatherData.main.temp - 273 | number:0}}&deg;C</h2>
-            <!-- <img src="img/veneturnegro.jpg" alt="" id="logo" /> -->
-            <img ng-src="{{vm.id_espejo}}" alt="" id="logo" />
-            <h2 id="temp">Welcome {{ vm.name }} , <p style="font-size:0.7em;"> {{vm.coment}} </p></h2>
+
+            <h2 id="temp">Welcome / Bienvenido {{ vm.name }} , <p style="font-size:0.7em;font-family: 'Krona One', sans-serif;"> {{vm.coment}} </p></h2>
           </div>
 
           <div class="icon col col-30" >
@@ -107,8 +106,9 @@
                             <i ng-if="vm.weatherData.weather[0].id >= 200 && vm.weatherData.weather[0].id <= 232 && vm.weatherData.clouds.all >= 50" class="wi wi-thunderstorm"></i>
                            <p class="info">
 
-
-              <span class="city">{{vm.weatherData.name}},  {{vm.weatherData.sys.country}}</span>
+                             <i ng-if="vm.weatherData.weather[0].id >= 701 && vm.weatherData.weather[0].id <= 781" class="wi wi-fog"></i>
+                             <h2 id="temp">{{vm.weatherData.main.temp - 273 | number:0}}&deg;C</h2>
+              <!-- <span class="city">{{vm.weatherData.name}},  {{vm.weatherData.sys.country}}</span> -->
 
             </div
             </div>

@@ -115,10 +115,10 @@
 
    vm.todos = [
      {text:'Make an Angular and Material Design App', done:true},
-     {text:'Learn Github', done:false}];
+     {text:'Learn Github', done:true}];
 
    vm.addTodo = function() {
-     vm.todos.push({text: vm.todoText, done:false});
+     vm.todos.push({text: vm.todoText, done :false});
      vm.todoText = '';
    };
 

@@ -12,6 +12,7 @@
          .find({})
          .$promise
          .then(function(data){
+            console.log(data);
             vm.sections = [];
             vm.name = data[0].name;
             vm.coment = data[0].coment;
