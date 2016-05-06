@@ -62,102 +62,121 @@
           </md-tab>
           <md-tab label="View Mirror {{vm.sections[1].view}}">
           <div class="column">
-              <div flex layout="row" id="mainBody" class="md-whiteframe-8dp layout-padding layout-margin"
-                    max-width="450px">
-                <md-content class="md-padding">
-                  <form ng-submit="vm.addTodo()">
-                    <div layout layout-align-gt-sm="center center">
-                      <md-input-container flex="85">
-                        <label>Add todo item</label>
-                        <input ng-model="vm.todoText" placeholder="Todo item">
-                      </md-input-container>
-                      <md-input-container>
-                         <md-button type="submit" class="md-fab" aria-label="Add todo items">
-                            <md-icon><i class="material-icons">add</i></md-icon>
-                         </md-button>
-                      </md-input-container>
-                    </div>
-                  </form>
 
-                  <div>
-                    <div flex layout layout-align="end end" class="listHeader">
-                      {{vm.remaining()}} of {{vm.todos.length}} remaining</span>
-                      [<a href="" ng-click="vm.archive()">Archive</a>]
-                    </div>
-                    <ul>
-                      <li ng-repeat="todo in vm.todos">
-                        <md-checkbox ng-model="vm.todo.done" aria-label="Todo Checkbox" ng-init="vm.todo.done=false" >
-                          {{todo.text}}
-                        </md-checkbox>
-                      </li>
-                    </ul>
-                </div>
-                </md-content>
-            </div>
+              <md-grid-list
+                   md-cols-gt-md="12" md-cols-sm="3" md-cols-md="8"
+                   md-row-height-gt-md="1:1" md-row-height="4:3"
+                   md-gutter-gt-md="16px" md-gutter-gt-sm="8px" md-gutter="4px">
+                   <md-grid-tile ng-style="{'background': white}"
+                                 md-colspan-gt-sm="4"
+                                md-rowspan-gt-sm="6">
+                       <div flex layout="row" id="mainBody" class="md-whiteframe-8dp layout-padding layout-margin"
+                             max-width="450px">
+                         <md-content class="md-padding">
+                           <form ng-submit="vm.addTodo()">
+                             <div layout layout-align-gt-sm="center center">
+                               <md-input-container flex="85">
+                                 <label>Add breakfast dish</label>
+                                 <input ng-model="vm.todoText" placeholder="Dish">
+                               </md-input-container>
+                               <md-input-container>
+                                  <md-button type="submit" class="md-fab" aria-label="Add todo items">
+                                     <md-icon><i class="material-icons">add</i></md-icon>
+                                  </md-button>
+                               </md-input-container>
+                             </div>
+                           </form>
 
-            <div flex layout="row" id="mainBody" class="md-whiteframe-8dp layout-padding layout-margin">
-              <md-content class="md-padding">
-                <form ng-submit="vm.addTodo()">
-                  <div layout layout-align-gt-sm="center center">
-                    <md-input-container flex="85">
-                      <label>Add todo item</label>
-                      <input ng-model="vm.todoText" placeholder="Todo item">
-                    </md-input-container>
-                    <md-input-container>
-                       <md-button type="submit" class="md-fab" aria-label="Add todo items">
-                          <md-icon><i class="material-icons">add</i></md-icon>
-                       </md-button>
-                    </md-input-container>
-                  </div>
-                </form>
+                           <div>
+                             <div flex layout layout-align="end end" class="listHeader">
+                               {{vm.remaining()}} of {{vm.todos.length}} remaining</span>
+                               [<a href="" ng-click="vm.archive()">Archive</a>]
+                             </div>
+                             <ul>
+                               <li ng-repeat="todo in vm.todos">
+                                 <md-checkbox ng-model="todo.done" aria-label="Todo Checkbox" ng-init="todo.done=false" >
+                                   {{todo.text}}
+                                 </md-checkbox>
+                               </li>
+                             </ul>
+                         </div>
+                         </md-content>
+                     </div>
+                   </md-grid-tile>
+                   <md-grid-tile ng-style="{'background': white}"
+                                 md-colspan-gt-sm="4"
+                                md-rowspan-gt-sm="6">
+                       <div flex layout="row" id="mainBody" class="md-whiteframe-8dp layout-padding layout-margin"
+                             max-width="450px">
+                         <md-content class="md-padding">
+                           <form ng-submit="vm.addTodo()">
+                             <div layout layout-align-gt-sm="center center">
+                               <md-input-container flex="85">
+                                 <label>Add launch dish</label>
+                                 <input ng-model="vm.todoText" placeholder="Dish">
+                               </md-input-container>
+                               <md-input-container>
+                                  <md-button type="submit" class="md-fab" aria-label="Add todo items">
+                                     <md-icon><i class="material-icons">add</i></md-icon>
+                                  </md-button>
+                               </md-input-container>
+                             </div>
+                           </form>
 
-                <div>
-                  <div flex layout layout-align="end end" class="listHeader">
-                    {{vm.remaining()}} of {{vm.todos.length}} remaining</span>
-                    [<a href="" ng-click="vm.archive()">Archive</a>]
-                  </div>
-                  <ul>
-                    <li ng-repeat="todo in vm.todos">
-                      <md-checkbox ng-model="vm.todo.done" aria-label="Todo Checkbox" ng-init="vm.todo.done=false" >
-                        {{todo.text}}
-                      </md-checkbox>
-                    </li>
-                  </ul>
-              </div>
-              </md-content>
-          </div>
+                           <div>
+                             <div flex layout layout-align="end end" class="listHeader">
+                               {{vm.remaining()}} of {{vm.todos.length}} remaining</span>
+                               [<a href="" ng-click="vm.archive()">Archive</a>]
+                             </div>
+                             <ul>
+                               <li ng-repeat="todo in vm.todos">
+                                 <md-checkbox ng-model="todo.done" aria-label="Todo Checkbox" ng-init="todo.done=false" >
+                                   {{todo.text}}
+                                 </md-checkbox>
+                               </li>
+                             </ul>
+                         </div>
+                         </md-content>
+                     </div>
+                   </md-grid-tile>
+                   <md-grid-tile ng-style="{'background': white}"
+                                 md-colspan-gt-sm="4"
+                                md-rowspan-gt-sm="6">
+                       <div flex layout="row" id="mainBody" class="md-whiteframe-8dp layout-padding layout-margin"
+                             max-width="450px">
+                         <md-content class="md-padding">
+                           <form ng-submit="vm.addTodo()">
+                             <div layout layout-align-gt-sm="center center">
+                               <md-input-container flex="85">
+                                 <label>Add dinner dish</label>
+                                 <input ng-model="vm.todoText" placeholder="Dish">
+                               </md-input-container>
+                               <md-input-container>
+                                  <md-button type="submit" class="md-fab" aria-label="Add todo items">
+                                     <md-icon><i class="material-icons">add</i></md-icon>
+                                  </md-button>
+                               </md-input-container>
+                             </div>
+                           </form>
 
-          <div flex layout="row" id="mainBody" class="md-whiteframe-8dp layout-padding layout-margin">
-            <md-content class="md-padding">
-              <form ng-submit="vm.addTodo()">
-                <div layout layout-align-gt-sm="center center">
-                  <md-input-container flex="85">
-                    <label>Add todo item</label>
-                    <input ng-model="vm.todoText" placeholder="Todo item">
-                  </md-input-container>
-                  <md-input-container>
-                     <md-button type="submit" class="md-fab" aria-label="Add todo items">
-                        <md-icon><i class="material-icons">add</i></md-icon>
-                     </md-button>
-                  </md-input-container>
-                </div>
-              </form>
+                           <div>
+                             <div flex layout layout-align="end end" class="listHeader">
+                               {{vm.remaining()}} of {{vm.todos.length}} remaining</span>
+                               [<a href="" ng-click="vm.archive()">Archive</a>]
+                             </div>
+                             <ul>
+                               <li ng-repeat="todo in vm.todos">
+                                 <md-checkbox ng-model="todo.done" aria-label="Todo Checkbox" ng-init="todo.done=false" >
+                                   {{todo.text}}
+                                 </md-checkbox>
+                               </li>
+                             </ul>
+                         </div>
+                         </md-content>
+                     </div>
+                   </md-grid-tile>
+                </md-grid-list>
 
-              <div>
-                <div flex layout layout-align="end end" class="listHeader">
-                  {{vm.remaining()}} of {{vm.todos.length}} remaining</span>
-                  [<a href="" ng-click="vm.archive()">Archive</a>]
-                </div>
-                <ul>
-                  <li ng-repeat="todo in vm.todos">
-                    <md-checkbox ng-model="vm.todo.done" aria-label="Todo Checkbox" ng-init="vm.todo.done=false" >
-                      {{todo.text}}
-                    </md-checkbox>
-                  </li>
-                </ul>
-              </div>
-            </md-content>
-        </div>
       </div>
           </md-tab>
     </md-tabs>
