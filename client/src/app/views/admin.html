@@ -73,7 +73,7 @@
                        <div flex layout="row" id="mainBody" class="md-whiteframe-8dp layout-padding layout-margin"
                              max-width="450px">
                          <md-content class="md-padding">
-                           <form ng-submit="vm.addDish()">
+                           <form ng-submit="vm.addDish('breakfast')">
                              <div layout layout-align-gt-sm="center center">
                                <md-input-container flex="85">
                                  <label>Add breakfast dish</label>
@@ -93,7 +93,7 @@
                                [<a href="" ng-click="vm.archive()">Archive</a>]
                              </div>
                              <ul>
-                               <li ng-repeat="dish in vm.dishes">
+                               <li ng-repeat="dish in vm.dishes | filter : {class: 'breakfast'}">
                                  <md-checkbox ng-model="dish.status" aria-label="Todo Checkbox" ng-init="dish.status=false" >
                                    {{dish.dish}}
                                  </md-checkbox>
@@ -109,7 +109,7 @@
                        <div flex layout="row" id="mainBody" class="md-whiteframe-8dp layout-padding layout-margin"
                              max-width="450px">
                          <md-content class="md-padding">
-                           <form ng-submit="vm.addDish()">
+                           <form ng-submit="vm.addDish('launch')">
                              <div layout layout-align-gt-sm="center center">
                                <md-input-container flex="85">
                                  <label>Add launch dish</label>
@@ -129,7 +129,7 @@
                                [<a href="" ng-click="vm.archive()">Archive</a>]
                              </div>
                              <ul>
-                               <li ng-repeat="dish in vm.dishes">
+                               <li ng-repeat="dish in vm.dishes | filter : {class: 'launch'}">
                                  <md-checkbox ng-model="dish.status" aria-label="Todo Checkbox" ng-init="dish.status=false" >
                                    {{dish.dish}}
                                  </md-checkbox>
@@ -145,7 +145,7 @@
                        <div flex layout="row" id="mainBody" class="md-whiteframe-8dp layout-padding layout-margin"
                              max-width="450px">
                          <md-content class="md-padding">
-                           <form ng-submit="vm.addDish()">
+                           <form ng-submit="vm.addDish('dinner')">
                              <div layout layout-align-gt-sm="center center">
                                <md-input-container flex="85">
                                  <label>Add dinner dish</label>
@@ -165,7 +165,7 @@
                                [<a href="" ng-click="vm.archive()">Archive</a>]
                              </div>
                              <ul>
-                               <li ng-repeat="dish in vm.dishes">
+                               <li ng-repeat="dish in vm.dishes | filter : {class: 'dinner'}">
                                  <md-checkbox ng-model="dish.status" aria-label="Todo Checkbox" ng-init="dish.status=false" >
                                    {{dish.dish}}
                                  </md-checkbox>
