@@ -2,7 +2,7 @@
 
   angular
     .module('app')
-    .controller('adminController', ['Enlace','$scope','fileUpload',
+    .controller('adminController', ['Enlace','$scope','fileUpload', 'MenuDiario',
       ProfileController
     ])
     .directive('fileModel', ['$parse', function ($parse) {
@@ -39,7 +39,7 @@
 /*============================================================================
 ==============================================================================
 ==============================================================================*/
-  function ProfileController(Enlace, $scope, fileUpload) {
+  function ProfileController(Enlace, $scope, fileUpload, MenuDiario) {
     var vm = this;
 //------------------------------------------------------------------------------
     vm.uploadFile = function(){
@@ -115,29 +115,60 @@
 
    vm.dishes = [];
 
-  //  MenuDiario
-  //  .find()
-  //  .$promise
-  //  .then(function (data) {
-  //       vm.dishes = data;
-  //  },function (data) {
-  //     vm.dishes = [];
-  //  });
+   MenuDiario
+   .find()
+   .$promise
+   .then(function (data) {
+        vm.dishes = data;
+        console.log(vm.dishes);
+   },function (data) {
+      vm.dishes = [];
+   });
 
 
    vm.addDish = function(classi) {
      console.log(classi);
-     vm.dishes.push({dish: vm.dishText, status :false, class: classi});
-     vm.dishText = '';
-   };
-
-   vm.remaining = function() {
-     var count = 0;
-     angular.forEach(vm.dishes, function(dish) {
-       count += dish.status ? 0 : 1;
+     MenuDiario
+     .create({class: classi, dish: vm.dishText, status: false})
+     .$promise
+     .then(function (data) {
+         vm.dishes.push({dish: vm.dishText, status :false, class: classi});
+         vm.dishText = '';
+     },function (err) {
+       console.log(err);
+       vm.dishText = '';
      });
-     return count;
    };
+   vm.updateDinner = function (id, status) {
+      MenuDiario
+      .prototype$updateAttributes({id:id},{status: status})
+      .$promise
+      .then(function (data) {
+          console.log('actualizado');
+      },function (err) {
+         console.log(err);
+     })
+   };
+   vm.deleteDish = function (id) {
+     MenuDiario
+     .deleteById({id:id})
+     .$promise
+     .then(function (data) {
+        console.log('elimiminado');
+        for (var i = 0; i < vm.dishes.length; i++) {
+          if (vm.dishes[i].id == id) {
+             vm.dishes.splice(i,1);
+          }
+        }
+     })
+   }
+  //  vm.remaining = function(classi) {
+  //    var count = 0;
+  //    angular.forEach(vm.dishes, function(dish) {
+  //      count += dish.status && ? 0 : 1;
+  //    });
+  //    return count;
+  //  };
 
    vm.archive = function() {
      var oldTodos = vm.dishes;
