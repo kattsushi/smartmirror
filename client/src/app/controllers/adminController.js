@@ -142,6 +142,7 @@
        vm.dishText = '';
      });
    };
+   
    vm.updateDinner = function (id, status) {
       MenuDiario
       .prototype$updateAttributes({id:id},{status: status})
