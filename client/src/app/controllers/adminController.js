@@ -2,7 +2,7 @@
 
   angular
     .module('app')
-    .controller('adminController', ['Enlace','$scope','fileUpload', 'MenuDiario',
+    .controller('adminController', ['Enlace','$scope','fileUpload', 'MenuDiario', 'Fuentes',
       ProfileController
     ])
     .directive('fileModel', ['$parse', function ($parse) {
@@ -39,7 +39,7 @@
 /*============================================================================
 ==============================================================================
 ==============================================================================*/
-  function ProfileController(Enlace, $scope, fileUpload, MenuDiario) {
+  function ProfileController(Enlace, $scope, fileUpload, MenuDiario, Fuentes) {
     var vm = this;
 //------------------------------------------------------------------------------
     vm.uploadFile = function(){
@@ -177,5 +177,60 @@
        if (!dish.status) vm.dishes.push(dish);
      });
    };
+
+    /*============================================================================
+  ==============================================================================
+  ==============================================================================*/
+  vm.fonts = [];
+  Fuentes
+  .find()
+  .$promise
+  .then(function (data) {
+    vm.fonts = data;
+  },function (err) {
+    vm.fonts = [];
+  })
+
+  vm.setSelect = function (id) {
+    vm.selected = id;
+    Fuentes
+    .prototype$updateAttributes({id:id},{status:true})
+    .$promise
+    .then(function (data) {
+        console.log("actualizado", id);
+
+        Fuentes
+        .find({filter:{where:{id:{neq:id}}}})
+        .$promise
+        .then(function (data) {
+           for (var i = 0; i < data.length; i++) {
+             Fuentes
+             .prototype$updateAttributes({id:data[i].id},{status: false})
+             .$promise
+             .then(function (e) {
+                console.log(i);
+             });             
+           }
+        })  
+    })
+    
+  }
+
+  vm.addFont = function() {
+
+     Fuentes
+     .create({name: vm.fontText, url: vm.fontUrl, status: false})
+     .$promise
+     .then(function (data) {
+         vm.fonts.push({name: vm.fontText, url: vm.fontUrl, status: false});
+         vm.fontText = '';
+         vm.fontUrl = '';
+     },function (err) {
+       console.log(err);
+       vm.fontText = '';
+       vm.fontUrl = '';
+     });
+   };
+
 }
 })();
