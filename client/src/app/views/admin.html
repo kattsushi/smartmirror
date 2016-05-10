@@ -89,7 +89,9 @@
                                <li ng-repeat="dish in vm.dishes | filter : {class: 'breakfast'}"
                                	   ng-mouseenter="entro = true"
                                	   ng-mouseleave="entro = false">
-                                 <md-checkbox ng-model="dish.status" aria-label="Todo Checkbox" ng-init="dish.status=false" >                                   
+                                 <md-checkbox ng-model="dish.status"
+                                 			  aria-label="Todo Checkbox"
+                                 			  ng-change="vm.updateDinner(dish.id, dish.status)">                                   
                                  </md-checkbox>
                                  <span>{{dish.dish}}</span>
                                  <i class="material-icons"
@@ -107,7 +109,7 @@
                        <div flex layout="row" id="mainBody" class="md-whiteframe-8dp layout-padding layout-margin"
                              max-width="450px">
                          <md-content class="md-padding">
-                           <form ng-submit="vm.addDish('launch')">
+                           <form ng-submit="vm.addDish('lunch')">
                              <div layout layout-align-gt-sm="center center">
                                <md-input-container flex="85">
                                  <label>Add launch dish</label>
@@ -126,7 +128,9 @@
                                <li ng-repeat="dish in vm.dishes | filter : {class: 'launch'}"
                            		   ng-mouseenter="entro = true"
                                	   ng-mouseleave="entro = false">
-                                 <md-checkbox ng-model="dish.status" aria-label="Todo Checkbox" ng-init="dish.status=false">
+                                 <md-checkbox ng-model="dish.status"
+                             				  aria-label="Todo Checkbox" 
+                             				  ng-change="vm.updateDinner(dish.id, dish.status)">
                                  </md-checkbox>
                                  <span>{{dish.dish}}</span>
                                  <i class="material-icons"
@@ -163,7 +167,9 @@
                                <li ng-repeat="dish in vm.dishes | filter : {class: 'dinner'}"
                                	   ng-mouseenter="entro = true"
                                	   ng-mouseleave="entro = false">
-                                 <md-checkbox ng-model="dish.status" aria-label="Todo Checkbox" ng-init="dish.status=false" >
+                                 <md-checkbox ng-model="dish.status"
+                                 			  aria-label="Todo Checkbox" 
+                                 			  ng-change="vm.updateDinner(dish.id, dish.status)">
                                  </md-checkbox>
                                  <span>{{dish.dish}}</span>
                                  <i class="material-icons"

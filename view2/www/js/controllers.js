@@ -2,7 +2,7 @@
 (function() {
 'use strict';
 
-function MainCtrl($http, Enlace, Fuentes) {
+function MainCtrl($http, Enlace, Fuentes, MenuDiario) {
   var vm = this;
 
   vm.location = 'Hola mundo';
@@ -12,7 +12,7 @@ function MainCtrl($http, Enlace, Fuentes) {
       }
 
   //vm.feedSrc = 'http://ep00.epimg.net/rss/elpais/portada.xml';
- 
+ vm.setT = function () {
   vm.load = function(e){
    
      Fuentes
@@ -34,6 +34,14 @@ function MainCtrl($http, Enlace, Fuentes) {
         })
 
     //--------------------------------------------------------------------------
+
+    MenuDiario
+    .find({filter:{where:{status:true}}})
+    .$promise
+    .then(function (data) {
+       vm.menus = data ;
+       console.log(data);
+    });
     
     //--------------------------------------------------------------------------
     Enlace
@@ -48,15 +56,24 @@ function MainCtrl($http, Enlace, Fuentes) {
              }
           }
        })
+    
    };
     vm.load();
 
-    setInterval(vm.load, 500);
-
+    setInterval(vm.load, 3000);
+  
+    if(vm.toggle){
+        vm.toggle = false;
+       }else{
+        vm.toggle = true;
+       }
+    }
+    vm.setT();
+    setInterval(vm.setT, 30000);
   }
 
 
 angular.module('app.controllers', [])
-       .controller('mainCtrl',['$http','Enlace','Fuentes', MainCtrl]);
+       .controller('mainCtrl',['$http','Enlace','Fuentes','MenuDiario', MainCtrl]);
 
 })();
