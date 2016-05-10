@@ -2,7 +2,9 @@
 
   angular
     .module('app')
-    .controller('adminController', ['Enlace','$scope','fileUpload', 'MenuDiario', 'Fuentes',
+    .controller('adminController', ['Enlace','$scope','fileUpload',
+                                    'MenuDiario', 'Fuentes','$http',
+                                    '$mdDialog', '$mdMedia',
       ProfileController
     ])
     .directive('fileModel', ['$parse', function ($parse) {
@@ -39,7 +41,8 @@
 /*============================================================================
 ==============================================================================
 ==============================================================================*/
-  function ProfileController(Enlace, $scope, fileUpload, MenuDiario, Fuentes) {
+  function ProfileController(Enlace, $scope, fileUpload, MenuDiario, Fuentes,
+                             $http, $mdDialog, $mdMedia) {
     var vm = this;
 //------------------------------------------------------------------------------
     vm.uploadFile = function(){
@@ -217,19 +220,39 @@
   }
 
   vm.addFont = function() {
+    vm.Feed = function(url){
+        return $http.jsonp('//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=50&callback=JSON_CALLBACK&q=' + encodeURIComponent(url));
+      }
+    vm.Feed(vm.fontUrl)
+      .then(function(res){
+         if (res.data.responseData != null){
+            Fuentes
+             .create({name: vm.fontText, url: vm.fontUrl, status: false})
+             .$promise
+             .then(function (data) {
+                 vm.fonts.push({name: vm.fontText, url: vm.fontUrl, status: false});
+                 vm.fontText = '';
+                 vm.fontUrl = '';
+             },function (err) {
+               console.log(err);
+               vm.fontText = '';
+               vm.fontUrl = '';
+             });
+         }else{
+           $mdDialog.show(
+              $mdDialog.alert()
+                .parent(angular.element(document.querySelector('#popupContainer')))
+                .clickOutsideToClose(true)
+                .title('Sorry, but url font news is invalid')
+                .textContent('try font RSS in format xml')
+                .ariaLabel('Alert Dialog Demo')
+                .ok('Ok')
+                .targetEvent()
+            );
+         }
+       });
 
-     Fuentes
-     .create({name: vm.fontText, url: vm.fontUrl, status: false})
-     .$promise
-     .then(function (data) {
-         vm.fonts.push({name: vm.fontText, url: vm.fontUrl, status: false});
-         vm.fontText = '';
-         vm.fontUrl = '';
-     },function (err) {
-       console.log(err);
-       vm.fontText = '';
-       vm.fontUrl = '';
-     });
+     
    };
 
 }

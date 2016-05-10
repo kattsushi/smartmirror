@@ -1,5 +1,5 @@
 <!-- TODO: Add validations -->
-<md-content md-theme="dark" class="md-padding" layout="row" layout-sm="column">
+<md-content md-theme="dark" class="md-padding" layout="row" layout-sm="column" id="popupContainer">
     <div class="md-whiteframe-8dp layout-padding layout-margin">
         <p class="md-display-1">
             ID SmartMirror Prototype : <span>{{vm.sections[0].id_espejo}}</span>
@@ -178,7 +178,7 @@
                 </md-grid-list>
       </div>
           </md-tab>
-          <md-tab label="View Mirror News fonts">
+          <md-tab label="View Mirror News fonts" >
           	<div flex layout="row" id="mainBody" class="md-whiteframe-8dp layout-padding layout-margin"
                              max-width="450px">
                          <md-content class="md-padding">
@@ -208,8 +208,8 @@
 						  		  <md-radio-button 
 						  		  		ng-value="font.id" 
 						  		  		class="md-primary">
-						  		  		{{font.name}}
-				  		  		  </md-radio-button>	
+						  		  		<p style="display: inline-block;">{{font.name}}</p>	
+				  		  		  </md-radio-button>  
 					  		  	</div>				  
 							</md-radio-group>
                          </div>
