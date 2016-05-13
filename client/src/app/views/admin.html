@@ -1,5 +1,5 @@
 <!-- TODO: Add validations -->
-<md-content md-theme="dark" class="md-padding" layout="row" layout-sm="column">
+<md-content md-theme="dark" class="md-padding" layout="row" layout-sm="column" id="popupContainer">
     <div class="md-whiteframe-8dp layout-padding layout-margin">
         <p class="md-display-1">
             ID SmartMirror Prototype : <span>{{vm.sections[0].id_espejo}}</span>
@@ -34,10 +34,7 @@
                  <i class="material-icons">av_timer</i>
              </div>
     </div>
-    <div class="md-whiteframe-8dp layout-padding layout-margin">
 
-         </md-input-container>
-    </div>
 </md-content>
 <md-content class="md-padding">
     <md-tabs md-dynamic-height md-border-bottom>
@@ -77,7 +74,7 @@
                              <div layout layout-align-gt-sm="center center">
                                <md-input-container flex="85">
                                  <label>Add breakfast dish</label>
-                                 <input ng-model="vm.dishText" placeholder="Dish">
+                                 <input ng-model="vm.dishText" >
                                </md-input-container>
                                <md-input-container>
                                   <md-button type="submit" class="md-fab" aria-label="Add todo items">
@@ -88,15 +85,18 @@
                            </form>
 
                            <div>
-                             <div flex layout layout-align="end end" class="listHeader">
-                               {{vm.remaining()}} of {{vm.dishes.length}} remaining</span>
-                               [<a href="" ng-click="vm.archive()">Archive</a>]
-                             </div>
                              <ul>
-                               <li ng-repeat="dish in vm.dishes | filter : {class: 'breakfast'}">
-                                 <md-checkbox ng-model="dish.status" aria-label="Todo Checkbox" ng-init="dish.status=false" >
-                                   {{dish.dish}}
+                               <li ng-repeat="dish in vm.dishes | filter : {class: 'breakfast'}"
+                               	   ng-mouseenter="entro = true"
+                               	   ng-mouseleave="entro = false">
+                                 <md-checkbox ng-model="dish.status"
+                                 			  aria-label="Todo Checkbox"
+                                 			  ng-change="vm.updateDinner(dish.id, dish.status)">                                   
                                  </md-checkbox>
+                                 <span>{{dish.dish}}</span>
+                                 <i class="material-icons"
+                                 	ng-click="vm.deleteDish(dish.id)"
+                                 	ng-if="entro">cancel</i>
                                </li>
                              </ul>
                          </div>
@@ -109,11 +109,11 @@
                        <div flex layout="row" id="mainBody" class="md-whiteframe-8dp layout-padding layout-margin"
                              max-width="450px">
                          <md-content class="md-padding">
-                           <form ng-submit="vm.addDish('launch')">
+                           <form ng-submit="vm.addDish('lunch')">
                              <div layout layout-align-gt-sm="center center">
                                <md-input-container flex="85">
                                  <label>Add launch dish</label>
-                                 <input ng-model="vm.dishText" placeholder="Dish">
+                                 <input ng-model="vm.dishText" >
                                </md-input-container>
                                <md-input-container>
                                   <md-button type="submit" class="md-fab" aria-label="Add todo items">
@@ -124,15 +124,18 @@
                            </form>
 
                            <div>
-                             <div flex layout layout-align="end end" class="listHeader">
-                               {{vm.remaining()}} of {{vm.dishes.length}} remaining</span>
-                               [<a href="" ng-click="vm.archive()">Archive</a>]
-                             </div>
                              <ul>
-                               <li ng-repeat="dish in vm.dishes | filter : {class: 'launch'}">
-                                 <md-checkbox ng-model="dish.status" aria-label="Todo Checkbox" ng-init="dish.status=false" >
-                                   {{dish.dish}}
+                               <li ng-repeat="dish in vm.dishes | filter : {class: 'launch'}"
+                           		   ng-mouseenter="entro = true"
+                               	   ng-mouseleave="entro = false">
+                                 <md-checkbox ng-model="dish.status"
+                             				  aria-label="Todo Checkbox" 
+                             				  ng-change="vm.updateDinner(dish.id, dish.status)">
                                  </md-checkbox>
+                                 <span>{{dish.dish}}</span>
+                                 <i class="material-icons"
+                                 	ng-click="vm.deleteDish(dish.id)"
+                                 	ng-if="entro">cancel</i>
                                </li>
                              </ul>
                          </div>
@@ -149,7 +152,7 @@
                              <div layout layout-align-gt-sm="center center">
                                <md-input-container flex="85">
                                  <label>Add dinner dish</label>
-                                 <input ng-model="vm.dishText" placeholder="Dish">
+                                 <input ng-model="vm.dishText" >
                                </md-input-container>
                                <md-input-container>
                                   <md-button type="submit" class="md-fab" aria-label="Add todo items">
@@ -160,15 +163,18 @@
                            </form>
 
                            <div>
-                             <div flex layout layout-align="end end" class="listHeader">
-                               {{vm.remaining()}} of {{vm.dishes.length}} remaining</span>
-                               [<a href="" ng-click="vm.archive()">Archive</a>]
-                             </div>
                              <ul>
-                               <li ng-repeat="dish in vm.dishes | filter : {class: 'dinner'}">
-                                 <md-checkbox ng-model="dish.status" aria-label="Todo Checkbox" ng-init="dish.status=false" >
-                                   {{dish.dish}}
+                               <li ng-repeat="dish in vm.dishes | filter : {class: 'dinner'}"
+                               	   ng-mouseenter="entro = true"
+                               	   ng-mouseleave="entro = false">
+                                 <md-checkbox ng-model="dish.status"
+                                 			  aria-label="Todo Checkbox" 
+                                 			  ng-change="vm.updateDinner(dish.id, dish.status)">
                                  </md-checkbox>
+                                 <span>{{dish.dish}}</span>
+                                 <i class="material-icons"
+                                 	ng-click="vm.deleteDish(dish.id)"
+                                 	ng-if="entro">cancel</i>
                                </li>
                              </ul>
                          </div>
@@ -176,8 +182,45 @@
                      </div>
                    </md-grid-tile>
                 </md-grid-list>
-
       </div>
+          </md-tab>
+          <md-tab label="View Mirror News fonts" >
+          	<div flex layout="row" id="mainBody" class="md-whiteframe-8dp layout-padding layout-margin"
+                             max-width="450px">
+                         <md-content class="md-padding">
+                           <form ng-submit="vm.addFont()">
+                             <div layout layout-align-gt-sm="center center">
+                               <md-input-container flex="85">
+                                 <label>Add New Font</label>
+                                 <input ng-model="vm.fontText" >
+                               </md-input-container>
+                               <md-input-container flex="85">
+                                 <label>Font URL</label>
+                                 <input type="url" ng-model="vm.fontUrl" >
+                               </md-input-container>
+
+                               <md-input-container>
+                                  <md-button type="submit" class="md-fab" aria-label="Add todo items">
+                                     <md-icon><i class="material-icons">add</i></md-icon>
+                                  </md-button>
+                               </md-input-container>
+                             </div>
+                           </form>
+
+                           <div>
+                             <md-radio-group ng-model="vm.selected">
+                             	<div ng-click="vm.setSelect(font.id)"
+						  		  ng-repeat="font in vm.fonts">
+						  		  <md-radio-button 
+						  		  		ng-value="font.id" 
+						  		  		class="md-primary">
+						  		  		<p style="display: inline-block;">{{font.name}}</p>	
+				  		  		  </md-radio-button>  
+					  		  	</div>				  
+							</md-radio-group>
+                         </div>
+                         </md-content>
+                     </div>
           </md-tab>
     </md-tabs>
 </md-content>
