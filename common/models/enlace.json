@@ -55,6 +55,26 @@
     },
     "logo": {
       "type": "number"
+    },
+    "effect": {
+      "type": "string",
+      "default": "none"
+    },
+    "flash": {
+      "type": "string",
+      "default": ""
+    },
+    "front_camera": {
+      "type": "boolean",
+      "default": true
+    },
+    "cres_width": {
+      "type": "number",
+      "default": 640
+    },
+    "cres_height": {
+      "type": "number",
+      "default": 480
     }
   },
   "validations": [],
