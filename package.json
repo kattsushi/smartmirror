@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server/server.js",
   "scripts": {
-    "start": "node .",
+    "start": "nodemon server/server ",
     "pretest": "jshint .",
     "posttest": "nsp check"
   },
@@ -28,6 +28,6 @@
     "type": "",
     "url": ""
   },
-  "license": "UNLICENSED",
+  "license": "MiT",
   "description": "smartmirror"
 }
