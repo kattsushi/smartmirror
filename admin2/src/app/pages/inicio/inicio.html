@@ -1,0 +1,12 @@
+<dashboard-pie-chart></dashboard-pie-chart>
+
+<div class="row">
+  <div class="col-lg-6 col-md-12 col-sm-12"
+       ng-repeat="section in vm.sections"
+       ba-panel
+       ba-panel-title="View {{section.view}}"
+       ba-panel-class="medium-panel traffic-panel">
+    <span>Description : {{section.description}}</span>
+    <span>{{vm.sections | json}}</span>
+  </div>
+</div>
