@@ -1,0 +1,40 @@
+<div class="widgets">
+  <div class="row">
+    <div class="col-md-12 col-lg-4">
+      <div ba-panel ba-panel-title="Guest" ba-panel-class="xsmall-panel light-text">
+          <div class="form-group">
+            <input type="text"
+                   class="form-control input-lg"
+                   ng-change="vm.onChangeM()"
+                   ng-model="vm.guest">
+          </div>
+      </div>
+    </div>
+    <div class="col-md-12 col-lg-4">
+      <div ba-panel ba-panel-title="Message to guest" ba-panel-class="xsmall-panel light-text">
+          <div class="form-group">
+            <textarea class="form-control"
+                      ng-change="vm.onChangeM()"
+                      ng-model="vm.guestMessage"
+                      rows="5">
+            </textarea>
+          </div>
+      </div>
+    </div>
+
+    <div class="col-md-12 col-lg-4">
+      <div ba-panel ba-panel-title="Logo" ba-panel-class="xsmall-panel light-text">
+        <div class="userpic">
+                  <div class="userpic-wrapper">
+                    <img ng-src="{{ vm.picture }}" ng-click="vm.uploadPicture()">
+                  </div>
+                  <i class="ion-ios-close-outline" ng-click="vm.removePicture()" ng-if="!vm.noPicture"></i>
+                  <a href class="change-userpic" ng-click="vm.uploadPicture()">Change Profile Picture</a>
+                  <input type="file" ng-show="false" file-model="myFile" name="file" id="uploadFile">
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
