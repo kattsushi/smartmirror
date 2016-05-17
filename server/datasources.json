@@ -4,12 +4,12 @@
     "connector": "memory"
   },
   "mongodb": {
-    "host": "ds034279.mlab.com",
-    "port": 34279,
+    "host": "10.0.0.40",
+    "port": 27017,
     "database": "smartmirror",
-    "password": "kakashi1",
+    "password": "123456789",
     "name": "mongodb",
-    "user": "root2",
+    "user": "Usersmartmirror",
     "connector": "mongodb"
   }
 }

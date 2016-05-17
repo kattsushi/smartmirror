@@ -9,18 +9,16 @@
     $stateProvider
         .state('administracion', {
           url: '/administracion',
-          template : '<ui-view></ui-view>',
-          abstract: true,
+          templateUrl : 'app/pages/administracion/administracion.html',
           title: 'Adminstracion',
           sidebarMeta: {
             icon: 'ion-gear-b',
             order: 100
           },
+          controller: 'administracionCtrl as vm'
         });
   }
-  angular.module('SmartMirror.pages.administracion', [
-                                        'SmartMirror.pages.administracion.parametros'
-                                       ])
+  angular.module('SmartMirror.pages.administracion', [])
          .config(routeConfig);
 
 })();
