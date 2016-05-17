@@ -29,22 +29,20 @@
      };
 
 //arreglar bug
-     vm.onChange = function() {
-        console.log($scope.screenSwitch);
-        if ($scope.screenSwitch){
-            $scope.screenSwitch = !$scope.screenSwitch;
-            Enlace
-            .Event({status: $scope.screenSwitch, id_espejo:'001'})
-            .$promise
-            .then(function (res) {
-              console.log(res);
-              console.log('actualizado : ',$scope.screenSwitch);
-            }, function (err) {
-              console.log(err);
-            });
-        }
+    $scope.$watch('screenSwitch', function() {
+       console.log($scope.screenSwitch);
+       Enlace
+       .Event({status: $scope.screenSwitch, id_espejo:'001'})
+       .$promise
+       .then(function (res) {
+         console.log(res);
+         console.log('actualizado : ',$scope.screenSwitch);
+       }, function (err) {
+         console.log(err);
+       }, true);
+    });
 
-     };
+
    //---------------------------------------------------------------------------
   }
 
