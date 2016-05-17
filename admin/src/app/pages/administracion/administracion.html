@@ -5,8 +5,8 @@
         <label>
            <h2>Switch SmartMirror</h2>
            <switch color="primary"
-                   ng-model="vm.screenSwitch"
-                   ng-click="vm.onChange(vm.screenSwitch)">
+                   ng-model="screenSwitch"
+                   ng-change="vm.onChange()">
            </switch>
         </label>
       </div>
@@ -35,7 +35,7 @@
   </div>
   <div class="row">
     <div class="col-md-12 col-lg-4">
-      <div ba-panel ba-panel-title="Screen config" ba-panel-class="xsmall-panel light-text">
+      <div ba-panel ba-panel-title="Screen config" ba-panel-class="xsmall-panel light-text feed-comply-panel with-scroll todo-panel">
         <div class="input-group">
           <span class="input-group-addon input-group-addon-primary addon-left" id="basic-addon1">Time Sleep <i class="icon ion-ios-stopwatch-outline"></i></span>
           <input type="number"
