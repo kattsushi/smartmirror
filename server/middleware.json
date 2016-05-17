@@ -49,7 +49,7 @@
   },
   "files": {
     "loopback#static": {
-      "params": "$!../client/dist"
+      "params": "$!../admin/release"
     }
   },
   "final": {

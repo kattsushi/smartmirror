@@ -1,15 +1,121 @@
 <div class="widgets">
-  <div class="row">
-    <div class="col-md-12 col-lg-4">
-    <div ba-panel ba-panel-title="ID SmartMirror Prototype: {{vm.sections[0].id_espejo}}" ba-panel-class="xsmall-panel light-text">
-      <label>
-         <h2>Switch SmartMirror</h2>
-         <switch color="primary"
-                 ng-model="vm.data.cb1"
-                 ng-change="vm.onChange(vm.data.cb1)">
-         </switch>
-      </label>
+    <div class="row shift-up">
+      <div class="col-xlg-3 col-lg-4 col-md-4 col-xs-12"
+           ba-panel
+           ba-panel-title="Add breakfast dish"
+           ba-panel-class="xmedium-panel feed-comply-panel with-scroll todo-panel">
+        <!-- <menu-list></menu-list> -->
+        <form ng-submit="vm.addDish('breakfast')">
+            <div class="row" style="padding: 0 15px 15px 15px;">
+              <label>
+                <input ng-model="vm.dishText" class="form-control task-todo" placeholder="Add dish">
+              </label>
+              <button type="submit" class="btn btn-primary btn-lg"><i class="icon ion-plus"></i></button>
+            </div>
+        </form>
+
+        <div>
+          <ul style="padding:0px;">
+            <li ng-repeat="dish in vm.dishes | filter : {class: 'breakfast'}"
+                ng-mouseenter="entro = true"
+                ng-mouseleave="entro = false"
+                style="list-style:none;">
+
+                <label class="checkbox-inline custom-checkbox nowrap">
+                  <input type="checkbox"
+                         id="inlineCheckbox01"
+                         value="option1"
+                         ng-model="dish.status"
+                         aria-label="Todo Checkbox"
+                         ng-change="vm.updateDish(dish.id, dish.status)">
+                         <span></span>
+                </label>
+              <span>{{dish.dish}}</span>
+              <i class="icon ion-android-cancel"
+                 ng-click="vm.deleteDish(dish.id)"
+                 ng-if="entro">
+              </i>
+            </li>
+          </ul>
+      </div>
+      </div>
+      <div class="col-xlg-3 col-lg-4 col-md-4 col-xs-12"
+           ba-panel
+           ba-panel-title="Add Lunch dish"
+           ba-panel-class="xmedium-panel feed-comply-panel with-scroll todo-panel">
+        <!-- <menu-list></menu-list> -->
+        <form ng-submit="vm.addDish('lunch')">
+            <div class="row" style="padding: 0 15px 15px 15px;">
+              <label>
+                <input ng-model="vm.dishText" class="form-control task-todo" placeholder="Add dish">
+              </label>
+              <button type="submit" class="btn btn-primary btn-lg"><i class="icon ion-plus"></i></button>
+            </div>
+        </form>
+
+        <div>
+          <ul style="padding:0px;">
+            <li ng-repeat="dish in vm.dishes | filter : {class: 'lunch'}"
+                ng-mouseenter="entro = true"
+                ng-mouseleave="entro = false"
+                style="list-style:none;">
+
+                <label class="checkbox-inline custom-checkbox nowrap">
+                  <input type="checkbox"
+                         id="inlineCheckbox01"
+                         value="option1"
+                         ng-model="dish.status"
+                         aria-label="Todo Checkbox"
+                         ng-change="vm.updateDish(dish.id, dish.status)">
+                         <span></span>
+                </label>
+              <span>{{dish.dish}}</span>
+              <i class="icon ion-android-cancel"
+                 ng-click="vm.deleteDish(dish.id)"
+                 ng-if="entro">
+              </i>
+            </li>
+          </ul>
+      </div>
+      </div>
+      <div class="col-xlg-3 col-lg-4 col-md-4 col-xs-12"
+           ba-panel
+           ba-panel-title="Add Dinner dish"
+           ba-panel-class="xmedium-panel feed-comply-panel with-scroll todo-panel">
+        <!-- <menu-list></menu-list> -->
+        <form ng-submit="vm.addDish('dinner')">
+            <div class="row" style="padding: 0 15px 15px 15px;">
+              <label>
+                <input ng-model="vm.dishText" class="form-control task-todo" placeholder="Add dish">
+              </label>
+              <button type="submit" class="btn btn-primary btn-lg"><i class="icon ion-plus"></i></button>
+            </div>
+        </form>
+
+        <div>
+          <ul style="padding:0px;">
+            <li ng-repeat="dish in vm.dishes | filter : {class: 'dinner'}"
+                ng-mouseenter="entro = true"
+                ng-mouseleave="entro = false"
+                style="list-style:none;">
+
+                <label class="checkbox-inline custom-checkbox nowrap">
+                  <input type="checkbox"
+                         id="inlineCheckbox01"
+                         value="option1"
+                         ng-model="dish.status"
+                         aria-label="Todo Checkbox"
+                         ng-change="vm.updateDish(dish.id, dish.status)">
+                         <span></span>
+                </label>
+              <span>{{dish.dish}}</span>
+              <i class="icon ion-android-cancel"
+                 ng-click="vm.deleteDish(dish.id)"
+                 ng-if="entro">
+              </i>
+            </li>
+          </ul>
+      </div>
+      </div>
     </div>
-  </div>  
-  </div>
 </div>

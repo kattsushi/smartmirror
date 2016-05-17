@@ -6,6 +6,7 @@
     //--------------------------------------------------------------------------
       var vm = this;
       vm.sections = [];
+
       Enlace
          .find({filter:{where:{id_espejo:'001'}}})
          .$promise
@@ -13,6 +14,7 @@
             for (var i = 0; i < data.length; i++) {
               vm.sections.push(data[i]);
             }
+            vm.id_espejo = 'http://localhost:3001/assets/pictures/' + data[0].logo.toString() + '.png';
             console.log(vm.sections);
          });
 
@@ -53,6 +55,12 @@
       console.dir(file);
       var uploadUrl = '/api/photo';
       fileUpload.uploadFileToUrl(file, uploadUrl);
+      Enlace
+         .find({filter:{where:{id_espejo:'001'}}})
+         .$promise
+         .then(function(data){
+            vm.id_espejo = 'http://localhost:3001/assets/pictures/' + data[0].logo.toString() + '.png';
+      });
 
     };
    //---------------------------------------------------------------------------

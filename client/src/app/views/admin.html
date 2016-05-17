@@ -91,7 +91,7 @@
                                	   ng-mouseleave="entro = false">
                                  <md-checkbox ng-model="dish.status"
                                  			  aria-label="Todo Checkbox"
-                                 			  ng-change="vm.updateDinner(dish.id, dish.status)">                                   
+                                 			  ng-change="vm.updateDinner(dish.id, dish.status)">
                                  </md-checkbox>
                                  <span>{{dish.dish}}</span>
                                  <i class="material-icons"
@@ -129,7 +129,7 @@
                            		   ng-mouseenter="entro = true"
                                	   ng-mouseleave="entro = false">
                                  <md-checkbox ng-model="dish.status"
-                             				  aria-label="Todo Checkbox" 
+                             				  aria-label="Todo Checkbox"
                              				  ng-change="vm.updateDinner(dish.id, dish.status)">
                                  </md-checkbox>
                                  <span>{{dish.dish}}</span>
@@ -168,7 +168,7 @@
                                	   ng-mouseenter="entro = true"
                                	   ng-mouseleave="entro = false">
                                  <md-checkbox ng-model="dish.status"
-                                 			  aria-label="Todo Checkbox" 
+                                 			  aria-label="Todo Checkbox"
                                  			  ng-change="vm.updateDinner(dish.id, dish.status)">
                                  </md-checkbox>
                                  <span>{{dish.dish}}</span>
@@ -210,14 +210,14 @@
                            <div>
                              <md-radio-group ng-model="vm.selected">
                              	<div ng-click="vm.setSelect(font.id)"
-						  		  ng-repeat="font in vm.fonts">
-						  		  <md-radio-button 
-						  		  		ng-value="font.id" 
-						  		  		class="md-primary">
-						  		  		<p style="display: inline-block;">{{font.name}}</p>	
-				  		  		  </md-radio-button>  
-					  		  	</div>				  
-							</md-radio-group>
+                						  		  ng-repeat="font in vm.fonts">
+                						  		  <md-radio-button
+                						  		  		ng-value="font.id"
+                						  		  		class="md-primary">
+                						  		  		<p style="display: inline-block;">{{font.name}}</p>
+                				  		  		  </md-radio-button>
+                					  		  	</div>
+                							</md-radio-group>
                          </div>
                          </md-content>
                      </div>
