@@ -24,7 +24,8 @@
 
                                       'SmartMirror.pages.inicio',
                                       'SmartMirror.pages.profile',
-                                      'SmartMirror.pages.administracion'
+                                      'SmartMirror.pages.administracion',
+                                      'SmartMirror.pages.smartView'
                                       ])
          .config(['$urlRouterProvider', 'LoopBackResourceProvider', routeConfig]);
 

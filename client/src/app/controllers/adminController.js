@@ -62,7 +62,7 @@
             vm.sections.push(data[i]);
             vm.message = vm.sections[0].screen;
           }
-       });
+       }) ;
 
     vm.data = {
     cb1: true
@@ -142,7 +142,7 @@
        vm.dishText = '';
      });
    };
-   
+
    vm.updateDinner = function (id, status) {
       MenuDiario
       .prototype$updateAttributes({id:id},{status: status})
@@ -213,11 +213,11 @@
              .$promise
              .then(function (e) {
                 console.log(i);
-             });             
+             });
            }
-        })  
+        })
     })
-    
+
   }
 
   vm.addFont = function() {
@@ -253,7 +253,7 @@
          }
        });
 
-     
+
    };
 
 }

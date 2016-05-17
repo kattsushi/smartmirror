@@ -2,7 +2,7 @@
   'use strict';
 
   /** @ngInject */
-  function paramsCtrl(Enlace) {
+  function view2Ctrl(Enlace) {
     //--------------------------------------------------------------------------
       var vm = this;
       vm.sections = [];
@@ -15,20 +15,9 @@
             }
             console.log(vm.sections);
          });
-
-     vm.onChangeTime = function(timeoff) {
-        Enlace
-        .updateAll({where:{id_espejo: '001'}},{timeoff : timeoff})
-        .$promise
-        .then(function (res) {
-          console.log(res);
-        }, function (err) {
-          console.log(err);
-        })
-     };
    //---------------------------------------------------------------------------
   }
 
-  angular.module('SmartMirror.pages.administracion.parametros')
-         .controller('paramsCtrl',['Enlace', paramsCtrl]);
+  angular.module('SmartMirror.pages.smartView.view2')
+         .controller('view2Ctrl',['Enlace', view2Ctrl]);
 })();

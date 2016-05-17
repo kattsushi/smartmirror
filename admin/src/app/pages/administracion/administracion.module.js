@@ -19,8 +19,7 @@
         });
   }
   angular.module('SmartMirror.pages.administracion', [
-                                        'SmartMirror.pages.administracion.parametros',
-                                        'SmartMirror.pages.administracion.smartView'
+                                        'SmartMirror.pages.administracion.parametros'
                                        ])
          .config(routeConfig);
 
