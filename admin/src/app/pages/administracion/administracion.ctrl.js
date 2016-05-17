@@ -2,7 +2,7 @@
   'use strict';
 
   /** @ngInject */
-  function paramsCtrl(Enlace) {
+  function administracionCtrl(Enlace) {
     //--------------------------------------------------------------------------
       var vm = this;
       vm.sections = [];
@@ -13,7 +13,8 @@
             for (var i = 0; i < data.length; i++) {
               vm.sections.push(data[i]);
             }
-            console.log(vm.sections);
+            console.log(vm.sections[0].screen);
+            vm.screenSwitch = vm.sections[0].screen;
          });
 
      vm.onChangeTime = function(timeoff) {
@@ -24,11 +25,28 @@
           console.log(res);
         }, function (err) {
           console.log(err);
-        })
+        });
+     };
+
+     vm.data = {
+     cb1: false
+     };
+
+
+     vm.onChange = function(status) {
+        console.log(vm.data.cb1);
+        Enlace
+        .Event({status: status, id_espejo:'001'})
+        .$promise
+        .then(function (res) {
+          console.log(res);
+        }, function (err) {
+          console.log(err);
+        });
      };
    //---------------------------------------------------------------------------
   }
 
-  angular.module('SmartMirror.pages.administracion.parametros')
-         .controller('paramsCtrl',['Enlace', paramsCtrl]);
+  angular.module('SmartMirror.pages.administracion')
+         .controller('administracionCtrl',['Enlace', administracionCtrl]);
 })();
