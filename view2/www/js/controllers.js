@@ -14,7 +14,7 @@ function MainCtrl($http, Enlace, Fuentes, MenuDiario) {
   //vm.feedSrc = 'http://ep00.epimg.net/rss/elpais/portada.xml';
  vm.setT = function () {
   vm.load = function(e){
-   
+
      Fuentes
         .find({filter:{where:{status: true}}})
         .$promise
@@ -42,7 +42,7 @@ function MainCtrl($http, Enlace, Fuentes, MenuDiario) {
        vm.menus = data ;
        console.log(data);
     });
-    
+
     //--------------------------------------------------------------------------
     Enlace
        .find({})
@@ -56,12 +56,12 @@ function MainCtrl($http, Enlace, Fuentes, MenuDiario) {
              }
           }
        })
-    
+
    };
     vm.load();
 
     setInterval(vm.load, 3000);
-  
+
     if(vm.toggle){
         vm.toggle = false;
        }else{
@@ -69,7 +69,7 @@ function MainCtrl($http, Enlace, Fuentes, MenuDiario) {
        }
     }
     vm.setT();
-    setInterval(vm.setT, 30000);
+    setInterval(vm.setT, 80000);
   }
 
 

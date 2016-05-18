@@ -17,6 +17,14 @@
             $scope.screenSwitch = vm.sections[0].screen;
          });
 
+    $scope.$watch(function() {
+                      return $scope.toggle;
+                  }, function(newValue, oldValue) {
+                     // Aqui estas observando cambios
+                  });
+
+
+
      vm.onChangeTime = function(timeoff) {
         Enlace
         .updateAll({where:{id_espejo: '001'}},{timeoff : timeoff})
@@ -29,20 +37,21 @@
      };
 
 //arreglar bug
-    $scope.$watch('screenSwitch', function() {
-       console.log($scope.screenSwitch);
-       Enlace
-       .Event({status: $scope.screenSwitch, id_espejo:'001'})
-       .$promise
-       .then(function (res) {
-         console.log(res);
-         console.log('actualizado : ',$scope.screenSwitch);
-       }, function (err) {
-         console.log(err);
-       }, true);
-    });
-
-
+     vm.onChange = function() {
+        console.log($scope.screenSwitch);
+        if ($scope.screenSwitch){
+            $scope.screenSwitch = !$scope.screenSwitch;
+            Enlace
+            .Event({status: $scope.screenSwitch, id_espejo:'001'})
+            .$promise
+            .then(function (res) {
+              console.log(res);
+              console.log('actualizado : ',$scope.screenSwitch);
+            }, function (err) {
+              console.log(err);
+            });
+        }
+     };
    //---------------------------------------------------------------------------
   }
 
