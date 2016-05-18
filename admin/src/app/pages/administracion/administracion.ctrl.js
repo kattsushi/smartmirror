@@ -2,7 +2,7 @@
   'use strict';
 
   /** @ngInject */
-  function administracionCtrl(Enlace) {
+  function administracionCtrl(Enlace, $scope) {
     //--------------------------------------------------------------------------
       var vm = this;
       vm.sections = [];
@@ -14,8 +14,16 @@
               vm.sections.push(data[i]);
             }
             console.log(vm.sections[0].screen);
-            vm.screenSwitch = vm.sections[0].screen;
+            $scope.screenSwitch = vm.sections[0].screen;
          });
+
+    $scope.$watch(function() {
+                      return $scope.toggle;
+                  }, function(newValue, oldValue) {
+                     // Aqui estas observando cambios
+                  });
+
+
 
      vm.onChangeTime = function(timeoff) {
         Enlace
@@ -28,25 +36,25 @@
         });
      };
 
-     vm.data = {
-     cb1: false
-     };
-
-
-     vm.onChange = function(status) {
-        console.log(vm.data.cb1);
-        Enlace
-        .Event({status: status, id_espejo:'001'})
-        .$promise
-        .then(function (res) {
-          console.log(res);
-        }, function (err) {
-          console.log(err);
-        });
+//arreglar bug
+     vm.onChange = function() {
+        console.log($scope.screenSwitch);
+        if ($scope.screenSwitch){
+            $scope.screenSwitch = !$scope.screenSwitch;
+            Enlace
+            .Event({status: $scope.screenSwitch, id_espejo:'001'})
+            .$promise
+            .then(function (res) {
+              console.log(res);
+              console.log('actualizado : ',$scope.screenSwitch);
+            }, function (err) {
+              console.log(err);
+            });
+        }
      };
    //---------------------------------------------------------------------------
   }
 
   angular.module('SmartMirror.pages.administracion')
-         .controller('administracionCtrl',['Enlace', administracionCtrl]);
+         .controller('administracionCtrl',['Enlace','$scope', administracionCtrl]);
 })();

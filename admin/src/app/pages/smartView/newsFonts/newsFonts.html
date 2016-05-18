@@ -1,15 +1,47 @@
 <div class="widgets">
   <div class="row">
-    <div class="col-md-12 col-lg-4">
-    <div ba-panel ba-panel-title="ID SmartMirror Prototype: {{vm.sections[0].id_espejo}}" ba-panel-class="xsmall-panel light-text">
-      <label>
-         <h2>Switch SmartMirror</h2>
-         <switch color="primary"
-                 ng-model="vm.data.cb1"
-                 ng-change="vm.onChange(vm.data.cb1)">
-         </switch>
-      </label>
+    <div class="col-xlg-3 col-lg-4 col-md-4 col-xs-12"
+         ba-panel
+         ba-panel-title="Add New Font"
+         ba-panel-class="xmedium-panel feed-comply-panel with-scroll todo-panel">
+      <!-- <menu-list></menu-list> -->
+      <form ng-submit="vm.addFont()">
+          <div class="row" style="padding: 0 15px 15px 15px;">
+            <div class="">
+              <label>
+                <input ng-model="vm.fontText" class="form-control task-todo" placeholder="Add new font">
+              </label>
+            </div>
+            <div class="">
+              <label>
+                <input ng-model="vm.fontUrl" class="form-control task-todo" placeholder="Font URL">
+              </label>
+              <button type="submit" class="btn btn-primary btn-lg"><i class="icon ion-plus"></i></button>
+            </div>
+          </div>
+      </form>
+      <div class="input-demo radio-demo" ng-model="vm.selected">
+        <div class="col-md-12"
+             ng-click="vm.setSelect(font.id)"
+             ng-repeat="font in vm.fonts"
+             ng-mouseenter="entro = true"
+             ng-mouseleave="entro = false"
+          <label class="radio-inline custom-radio nowrap">
+            <input for="ok" type="radio"
+                   name="inlineRadioOptions"
+                   id="inlineRadio1"
+                   ng-value="font.id"
+                   class="md-primary">
+            <span id="ok" style="display: inline-block;">{{font.name}}</span>
+            </input>
+            <i class="icon ion-android-cancel"
+               ng-click="vm.deleteFont(font.id)"
+               ng-if="entro">
+            </i>
+          </label>
+        </div>
+      </div>
     </div>
-  </div>  
+  </div>
   </div>
 </div>

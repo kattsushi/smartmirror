@@ -13,6 +13,7 @@ angular.module('SmartMirror', [
   'ngJsTree',
   'angular-progress-button-styles',
   'lbServices',
+  'uiSwitch',
 
   'SmartMirror.theme',
   'SmartMirror.pages'

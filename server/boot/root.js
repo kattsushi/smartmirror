@@ -7,7 +7,7 @@ module.exports = function(server) {
 
   var storage =   multer.diskStorage({
     destination: function (req, file, callback) {
-      callback(null, __dirname +'/../../client/dist/assets/images');
+      callback(null, __dirname +'/../../admin/src/assets/img/pictures');
       // console.log('/image');
     },
     filename: function (req, file, callback) {

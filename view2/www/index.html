@@ -29,10 +29,10 @@
     <script src="js/controllers.js"></script>
   </head>
   <body ng-app="app" ng-controller="mainCtrl as vm">
-    <div class="container" style="visibility:{{ vm.vissible }}">
+    <div class="container" style="visibility:{{ !vm.vissible }}">
         <div class="bar">
-            <h1 ng-if="vm.toggle">News  {{vm.toggle}}</h1>
-            <h1 ng-if="!vm.toggle">Menu {{vm.toggle}}</h1>
+            <h1 ng-if="vm.toggle">News  </h1>
+            <h1 ng-if="!vm.toggle">Menu </h1>
         </div>
 
         <div id="titles" ng-if="vm.toggle">
@@ -40,32 +40,38 @@
                <ul>
                  <li class="item" ng-repeat="feed in vm.feeds">
                    <h5>{{feed.title}}</h5>
-                    <p class="text-left">{{feed.contentSnippet}}</p>
+                    <p>{{feed.contentSnippet}}</p>
                     <span class="small">{{feed.publishedDate}}</span>
                  </li>
                </ul>
             </div>
         </div>
 
-        <div id="titles" ng-if="!vm.toggle">
-            <div id="titlecontent">
+        <div class="row" style="margin-bottom:250px;" ng-if="!vm.toggle">
+            <div >
+              <h5>Breakfast</h5>
                <ul>
                  <li class="item" ng-repeat="menu in vm.menus | filter:{class: 'breakfast'}">
-                   <h5> {{menu.class}}</h5>
-                    <p class="text-left">{{menu.dish}}</p>
-                    <span class="small"> descripcion</span>
-                 </li>
-                 <li class="item" ng-repeat="menu in vm.menus | filter:{class: 'lunch'}">
-                   <h5> {{menu.class}}</h5>
-                    <p class="text-left">{{menu.dish}}</p>
-                    <span class="small"> descripcion</span>
-                 </li>
-                 <li class="item" ng-repeat="menu in vm.menus | filter:{class: 'dinner'}">
-                   <h5> {{menu.class}}</h5>
-                    <p class="text-left">{{menu.dish}}</p>
-                    <span class="small"> descripcion</span>
+                     <p >{{menu.dish}}</p>
                  </li>
                </ul>
+            </div>
+            <div class="">
+              <h5>Lunch</h5>
+              <ul>
+
+                <li class="item" ng-repeat="menu in vm.menus | filter:{class: 'lunch'}">
+                   <p >{{menu.dish}}</p>
+                </li>
+              </ul>
+            </div>
+            <div class="">
+              <h5>Dinner</h5>
+              <ul>
+                <li class="item" ng-repeat="menu in vm.menus | filter:{class: 'dinner'}">
+                   <p >{{menu.dish}}</p>
+                </li>
+              </ul>
             </div>
         </div>
     </div>

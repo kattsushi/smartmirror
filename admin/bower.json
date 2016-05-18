@@ -55,7 +55,8 @@
     "angular-xeditable": "~0.1.9",
     "ng-js-tree": "~0.0.7",
     "angular-resource": "^1.5.5",
-    "ng-file-upload": "^12.0.4"
+    "ng-file-upload": "^12.0.4",
+    "angular-ui-switch": "^0.1.1"
   },
   "overrides": {
     "amcharts": {

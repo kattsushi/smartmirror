@@ -46,7 +46,7 @@
     "$resolved": true
   },
   "fuentes": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": true,
     "$promise": {},
     "$resolved": true
