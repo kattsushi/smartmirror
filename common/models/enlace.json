@@ -54,7 +54,12 @@
       "type": "string"
     },
     "logo": {
-      "type": "number"
+      "type": "number",
+      "default": 0
+    },
+    "handout": {
+      "type": "number",
+      "default": 0
     },
     "effect": {
       "type": "string",
