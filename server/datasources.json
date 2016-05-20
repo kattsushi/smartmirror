@@ -9,7 +9,7 @@
     "database": "smartmirror",
     "password": "123456789",
     "name": "mongodb",
-    "user": "Usersmartmirror",
+    "user": "userSmartmirror",
     "connector": "mongodb"
   }
 }
