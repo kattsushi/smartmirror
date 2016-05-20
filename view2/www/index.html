@@ -39,9 +39,9 @@
             <div id="titlecontent">
                <ul>
                  <li class="item" ng-repeat="feed in vm.feeds">
-                   <h5>{{feed.title}}</h5>
-                    <p>{{feed.contentSnippet}}</p>
-                    <span class="small">{{feed.publishedDate}}</span>
+                   <div class="title">{{feed.title}}</div>
+                    <div class="subtitle">{{feed.contentSnippet}}</div>
+                    <div class="newDate">{{feed.publishedDate}}</div>
                  </li>
                </ul>
             </div>

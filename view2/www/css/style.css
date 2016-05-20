@@ -10,6 +10,17 @@ body {
   background: black;
 }
 
+.title{
+  font-size: 2.5em;
+  padding-bottom: 3px;
+  padding-top: 3px;
+}
+.subtitle{
+  font-size: 1.5em;
+}
+.newDate{
+  font-size: 1.1em;
+}
 
 img {
   padding-top: 20px;
