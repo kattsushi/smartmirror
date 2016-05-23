@@ -10,6 +10,8 @@
     <link rel="stylesheet" type="text/css" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/110131/weather-icons.css">
     <link href='https://fonts.googleapis.com/css?family=Krona+One' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,600' rel='stylesheet' type='text/css'>
+
+    <link href='https://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
@@ -29,25 +31,37 @@
     <script src="js/controllers.js"></script>
   </head>
   <body ng-app="app" ng-controller="mainCtrl as vm">
-    <div class="container" style="visibility:{{ !vm.vissible }}">
-        <div class="bar">
-            <h1 ng-if="vm.toggle">News  </h1>
-            <h1 ng-if="!vm.toggle">Menu </h1>
+    <div class="container" style="visibility:{{ vm.vissible }}">
+        <div class="row bar" style="max-height:30px">
+          <div class="col col-10">
+            <i class="ion-ios-paper-outline"></i>
+          </div>
+          <div class="col col-20">
+            <h1>News  </h1>
+          </div>
         </div>
 
-        <div id="titles" ng-if="vm.toggle">
+        <div id="titles">
             <div id="titlecontent">
-               <ul>
-                 <li class="item" ng-repeat="feed in vm.feeds">
-                   <div class="title">{{feed.title}}</div>
-                    <div class="subtitle">{{feed.contentSnippet}}</div>
+               <div class="item" ng-repeat="feed in vm.feeds">
+                   <div class="row" >
+                     <div class="col col-90 title">
+                       <span>
+                         {{feed.title}}
+                       </span>
+                     </div>
+                   </div>
+                    <div class="subtitle">
+                      <p>
+                        {{feed.contentSnippet}}
+                      </p>
+                    </div>
                     <div class="newDate">{{feed.publishedDate}}</div>
-                 </li>
-               </ul>
-            </div>
+               </div>
+              </div>
         </div>
 
-        <div class="row" style="margin-bottom:250px;" ng-if="!vm.toggle">
+        <!-- <div class="row" style="margin-bottom:250px;" ng-if="!vm.toggle">
             <div >
               <h5>Breakfast</h5>
                <ul>
@@ -73,7 +87,7 @@
                 </li>
               </ul>
             </div>
-        </div>
+        </div> -->
     </div>
   </body>
 </html>
