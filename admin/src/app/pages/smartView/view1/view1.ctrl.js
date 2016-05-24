@@ -14,7 +14,8 @@
             for (var i = 0; i < data.length; i++) {
               vm.sections.push(data[i]);
             }
-            vm.id_espejo = 'http://localhost:3001/assets/pictures/' + data[0].logo.toString() + '.png';
+            // vm.id_espejo = 'http://localhost:3001/assets/pictures/' + data[0].logo.toString() + '.png';
+            vm.id_espejo = 'http://10.0.0.121:3001/assets/pictures/' + data[0].logo.toString() + '.png';
             console.log(vm.sections);
          });
 
@@ -48,11 +49,14 @@
     };
 
     vm.uploadPicture = function () {
-      var fileInput = document.getElementById('uploadFile');
-      fileInput.click();
-      var file = $scope.myFile;
+      // var fileInput = document.getElementById('uploadFile');
+      // // fileInput.click();
+      var file = vm.myFile;
+
       console.log('file is ' );
-      console.dir(file);
+
+      console.log(vm.myFile);
+
       var uploadUrl = '/api/photo';
       fileUpload.uploadFileToUrl(file, uploadUrl);
       Enlace
@@ -76,11 +80,14 @@
                  restrict: 'A',
                  link: function(scope, element, attrs) {
                      var model = $parse(attrs.fileModel);
+                     console.log(attrs.fileModel);
                      var modelSetter = model.assign;
 
                      element.bind('change', function(){
                          scope.$apply(function(){
                              modelSetter(scope, element[0].files[0]);
+
+                             console.log(element[0].files[0]);
                          });
                      });
                  }
@@ -89,8 +96,10 @@
 
          .service('fileUpload', ['$http', function ($http) {
              this.uploadFileToUrl = function(file, uploadUrl){
+                //  console.log(uploadUrl);
                  var fd = new FormData();
                  fd.append('file', file);
+                 console.log(fd);
                  $http.post(uploadUrl, fd, {
                      transformRequest: angular.identity,
                      headers: {'Content-Type': undefined}

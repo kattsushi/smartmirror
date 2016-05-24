@@ -7,6 +7,7 @@
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/110131/weather-icons.css">
     <link href='https://fonts.googleapis.com/css?family=Krona+One' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,600' rel='stylesheet' type='text/css'>
@@ -31,7 +32,7 @@
     <script src="js/controllers.js"></script>
   </head>
   <body ng-app="app" ng-controller="mainCtrl as vm">
-    <div class="container" style="visibility:{{ vm.vissible }}">
+    <div class="container" style="visibility:{{ !vm.vissible }}">
         <div class="row bar" style="max-height:30px">
           <div class="col col-10">
             <i class="ion-ios-paper-outline"></i>
@@ -42,7 +43,7 @@
         </div>
 
         <div id="titles">
-            <div id="titlecontent">
+            <div id="titlecontent" class="switch" ng-animate="'animate'">
                <div class="item" ng-repeat="feed in vm.feeds">
                    <div class="row" >
                      <div class="col col-90 title">

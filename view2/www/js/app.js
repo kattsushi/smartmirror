@@ -1,5 +1,9 @@
 (function () {
-    angular.module('app', ['ionic', 'routes', 'app.controllers', 'lbServices'])
+  'use strict';
+    angular.module('app', ['ionic',
+                           'routes',
+                           'app.controllers',
+                           'lbServices'])
 
     .run(function($ionicPlatform) {
       $ionicPlatform.ready(function() {
