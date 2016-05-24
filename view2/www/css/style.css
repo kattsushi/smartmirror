@@ -21,28 +21,37 @@ h1 {
 }
 
 .title > span {
-  font-size: 2.3em;
+  font-size: 3.5em;
+	text-align: left;
 	font-weight: bold;
   padding-bottom: 3px;
 	padding-left: 0px;
   padding-top: 3px;
 	color: white !important;
-	max-width: 800px;
+	max-width: 650px;
 	/*font-family: sans-serif;*/
 	font-family: 'Slabo 27px', serif;
+	white-space: initial;
+	vertical-align:middle;
+	height: auto;
+	display: table;
 }
-.subtitle > p {
+.subtitle > span {
 	font-weight: lighter;
-  font-size: 1.1em;
+  font-size: 2.2em;
 	color: white !important;
 	text-align: justify;
-	max-width: 800px;
-	word-wrap: break-word;
+	max-width: 75%;
+	white-space: initial;
+	vertical-align:middle;
+	height: auto;
+	display: table;
 }
 
 .newDate{
-  font-size: 1.1em;
+  font-size: 1.5em;
 	color: white !important;
+	padding-left: 8px;
 }
 
 img {
@@ -135,15 +144,15 @@ h1 {
   pointer-events: none;
 }
 
-/*#titlecontent
+#titlecontent
 {
   position: absolute;
   top: 100%;
-  animation: scroll 0s linear 4s infinite;
+  animation: scroll 80s linear 4s infinite;
   min-width: 100%;
-}*/
+}
 
-#titlecontent
+/*#titlecontent
 {
   position: absolute;
   top: 100%;
@@ -152,7 +161,7 @@ h1 {
 	transition-duration: infinite;
   min-width: 100%;
 	animation: scroll;
-}
+}*/
 
 @keyframes scroll {
   0% { top: 100%; }
