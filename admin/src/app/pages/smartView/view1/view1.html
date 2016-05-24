@@ -25,13 +25,17 @@
       <div ba-panel ba-panel-title="Logo" ba-panel-class="light-text feed-comply-panel todo-panel">
         <div class="userpic">
                   <div class="userpic-wrapper">
-                    <img ng-src="{{ vm.id_espejo }}" ng-click="vm.uploadPicture()">
+                    <img ng-src="{{ vm.id_espejo }}">
                   </div>
                   <i class="ion-ios-close-outline" ng-click="vm.removePicture()" ng-if="!vm.noPicture"></i>
-                  <a href class="change-userpic" ng-click="vm.uploadPicture()">Change Profile Picture</a>
-                  <input type="file" ng-show="false" file-model="myFile" name="file" id="uploadFile">
+                  <a href class="change-userpic">Change Profile Picture</a>
+                  <form action="/api/photo" method="post" enctype="multipart/form-data">
+                    <input type="file" file-model="vm.myFile" name="file" id="uploadFile">
+                  </form>
         </div>
+
       </div>
+      <button type="" name="button" ng-click="vm.uploadPicture()"> subir</button>
     </div>
   </div>
   </div>

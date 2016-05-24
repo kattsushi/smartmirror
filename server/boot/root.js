@@ -8,7 +8,7 @@ module.exports = function(server) {
   //Proceso para carga de logo ----------INICIO--------------
   var storage =   multer.diskStorage({
     destination: function (req, file, callback) {
-      callback(null, __dirname +'/../../admin/src/assets/img/pictures');
+      callback(null, __dirname +'/../../admin/release/assets/pictures');
       // console.log('/image');
     },
     filename: function (req, file, callback) {
@@ -53,7 +53,7 @@ module.exports = function(server) {
   //Proceso para carga de volante ----------INICIO--------------
   var storageHandout =   multer.diskStorage({
     destination: function (req, file, callback) {
-      callback(null, __dirname +'/../../admin/src/assets/img/handout');
+      callback(null, __dirname +'/../../admin/release/assets/img/handout');
       // console.log('/image');
     },
     filename: function (req, file, callback) {
