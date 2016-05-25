@@ -42,6 +42,36 @@
         </div>
       </div>
     </div>
+    <div class="col-xlg-3 col-lg-8 col-md-8 col-xs-12"
+         ba-panel
+         ba-panel-title="Add New Image"
+         ba-panel-class="xmedium-panel feed-comply-panel with-scroll todo-panel">
+         <div class="row">
+           <div class="userpic2 col col-100">
+             <div class="userpic-wrapper2" >
+               <img ng-src="{{ vm.id_espejo }}" >
+             </div>
+             <i class="ion-ios-close-outline" ng-click="vm.removePicture()" ng-if="!vm.noPicture"></i>
+             <a href class="change-userpic">Change Profile Picture</a>
+             <form action="/api/photo" method="post" enctype="multipart/form-data">
+               <input type="file"
+               file-model="vm.myFile"
+               name="file"
+               id="uploadFile"
+               accept="image/*">
+             </form>
+           </div>
+           <div class="col ">
+             <button class="btn btn-primary btn-lg"
+             type=""
+             style="margin:25px 20px 0px 20px ;"
+             name="button"
+             ng-click="vm.uploadPicture()">
+             subir
+           </button>
+           </div>
+         </div>
+    </div>
   </div>
   </div>
 </div>
