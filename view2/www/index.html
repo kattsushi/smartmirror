@@ -33,16 +33,16 @@
   </head>
   <body ng-app="app" ng-controller="mainCtrl as vm">
     <div class="container" style="visibility:{{ !vm.vissible }}">
-        <div class="row bar" style="max-height:30px">
+        <div class="row bar" style="max-height:30px;margin : 0 !important;padding : 45px !important">
           <div class="col col-10">
             <i class="ion-ios-paper-outline"></i>
           </div>
-          <div class="col col-20">
-            <h1 style="padding-bottom:40px;">News  </h1>
+          <div class="col col-20" style="position:absolute;width:auto">
+            <h1 style="margin-bottom:40px;position:relative"> {{ vm.isTimeOf().title }}  </h1>
           </div>
         </div>
 
-        <div id="titles">
+        <div id="titles" ng-if="vm.isTimeOf().menu === 'news'">
             <div id="titlecontent" class="switch" ng-animate="'animate'">
                <div class="item" ng-repeat="feed in vm.feeds">
                    <div class="row" >
@@ -62,33 +62,19 @@
               </div>
         </div>
 
-        <!-- <div class="row" style="margin-bottom:250px;" ng-if="!vm.toggle">
-            <div >
-              <h5>Breakfast</h5>
-               <ul>
-                 <li class="item" ng-repeat="menu in vm.menus | filter:{class: 'breakfast'}">
-                     <p >{{menu.dish}}</p>
-                 </li>
-               </ul>
+        <div id="titles" ng-if="vm.isTimeOf().menu !== 'news'">
+            <div id="titlecontent" class="switch" ng-animate="'animate'">
+               <div class="item" ng-repeat="dish in vm.menus | filter:{class: vm.isTimeOf().menu}">
+                   <div class="row" >
+                     <div class="col col-90 title">
+                       <span>
+                         {{dish.dish}}
+                       </span>
+                     </div>
+                   </div>
+               </div>
             </div>
-            <div class="">
-              <h5>Lunch</h5>
-              <ul>
-
-                <li class="item" ng-repeat="menu in vm.menus | filter:{class: 'lunch'}">
-                   <p >{{menu.dish}}</p>
-                </li>
-              </ul>
-            </div>
-            <div class="">
-              <h5>Dinner</h5>
-              <ul>
-                <li class="item" ng-repeat="menu in vm.menus | filter:{class: 'dinner'}">
-                   <p >{{menu.dish}}</p>
-                </li>
-              </ul>
-            </div>
-        </div> -->
+        </div>
     </div>
   </body>
 </html>
