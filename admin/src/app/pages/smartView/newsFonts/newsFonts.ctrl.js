@@ -2,7 +2,7 @@
   'use strict';
 
   /** @ngInject */
-  function newsFontsCtrl(Enlace, Fuentes, $http, $uibModal, $scope) {
+  function newsFontsCtrl(Enlace, Fuentes, $http, $uibModal, $scope, fileUpload2) {
     //--------------------------------------------------------------------------
       var vm = this;
       vm.sections = [];
@@ -109,11 +109,50 @@
       });
     };
 
+    //*----- Subir Imagen
+
+    vm.uploadPicture = function () {
+      // var fileInput = document.getElementById('uploadFile');
+      // // fileInput.click();
+      var file = vm.myFile;
+
+      console.log('file is ' );
+
+      console.log(vm.myFile);
+
+      var uploadUrl = '/api/handout';
+      fileUpload2.uploadFileToUrl(file, uploadUrl);
+      Enlace
+         .find({filter:{where:{id_espejo:'001'}}})
+         .$promise
+         .then(function(data){
+            vm.id_espejo = 'http://localhost:3001/assets/img/handout/' + data[0].handout.toString() + '.png';
+      });
+
+    };
+
 }
 
   angular.module('SmartMirror.pages.smartView.newsFonts')
          .controller('newsFontsCtrl',[
                                       'Enlace','Fuentes','$http','$uibModal',
-                                      '$scope', newsFontsCtrl
-                                     ]);
+                                      '$scope','fileUpload2', newsFontsCtrl
+                                     ])
+          .service('fileUpload2', ['$http', function ($http) {
+                      this.uploadFileToUrl = function(file, uploadUrl){
+                         //  console.log(uploadUrl);
+                          var fd = new FormData();
+                          fd.append('file', file);
+                          console.log(fd);
+                          $http.post(uploadUrl, fd, {
+                              transformRequest: angular.identity,
+                              headers: {'Content-Type': undefined}
+                          })
+                          .success(function(){
+                            console.log('ok upload');
+                          })
+                          .error(function(){
+                          });
+                      };
+                  }]);
 })();
