@@ -17,12 +17,37 @@
             $scope.screenSwitch = vm.sections[0].screen;
          });
 
-    $scope.$watch(function() {
-                      return $scope.toggle;
-                  }, function(newValue, oldValue) {
-                     // Aqui estas observando cambios
-                  });
+    // $scope.$watch(function() {
+    //                   return $scope.toggle;
+    //               }, function(newValue, oldValue) {
+    //                  // Aqui estas observando cambios
+    //               });
 
+    $scope.$watch(
+                    function( scope ) {
+                        return (vm.screenSwitch);
+                    },
+                    function( newValue, oldValue ) {
+                        if (newValue !== oldValue){
+                          // vm.onChange(newValue);
+                          $scope.vm.onChange = function (newValue) {
+                                 console.log(newValue);
+                                 Enlace
+                                 .Event({status: newValue, id_espejo:'001'})
+                                 .$promise
+                                 .then(function (res) {
+                                   console.log(res);
+                                   console.log('actualizado : ', newValue);
+                                 }, function (err) {
+                                   console.log(err);
+                                 });
+                          };
+                          $scope.vm.onChange(newValue);
+                          console.log('nuevo valor', newValue);
+                          // console.log('viejo valor', oldValue);
+                        }
+                    }
+                  );
 
 
      vm.onChangeTime = function(timeoff) {
@@ -37,20 +62,17 @@
      };
 
 //arreglar bug
-     vm.onChange = function() {
-        console.log($scope.screenSwitch);
-        if ($scope.screenSwitch){
-            $scope.screenSwitch = !$scope.screenSwitch;
+     vm.onChange = function(screen) {
+            console.log(screen);
             Enlace
-            .Event({status: $scope.screenSwitch, id_espejo:'001'})
+            .Event({status: screen, id_espejo:'001'})
             .$promise
             .then(function (res) {
               console.log(res);
-              console.log('actualizado : ',$scope.screenSwitch);
+              console.log('actualizado : ', screen);
             }, function (err) {
               console.log(err);
             });
-        }
      };
    //---------------------------------------------------------------------------
   }

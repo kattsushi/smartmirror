@@ -42,13 +42,8 @@
          .then(function (data) {
             for (var i = 0; i < data.length; i++) {
               Fuentes
-              .prototype$updateAttributes({id:data[i].id},{status: false})
-              .$promise
-              .then(function(e) {
-                var i;
-                 console.log(i,e);
-              });
-            }
+              .prototype$updateAttributes({id:data[i].id},{status: false});
+              }
          });
      });
 
