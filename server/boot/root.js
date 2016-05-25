@@ -79,7 +79,7 @@ module.exports = function(server) {
     }
   });
 
-  var uploadHandout = multer({ storageHandout : storageHandout}).single('file');
+  var uploadHandout = multer({ storage : storageHandout}).single('file');
 
   router.post('/api/handout',function(req,res){
 
