@@ -10,6 +10,21 @@ body {
   background: black;
 }
 
+#handOut {
+	display: block;
+	width: 95%;
+	height: 95%;
+	padding-left: 1.8em;
+}
+
+.titulo {
+	display: inline-block;
+	padding-left: 1.2em;
+	padding-bottom: 0.2em;
+	margin: 0;
+	/*padding-bottom: 0.6em;*/
+}
+
 i {
 	position: absolute;
 	top:2px;
