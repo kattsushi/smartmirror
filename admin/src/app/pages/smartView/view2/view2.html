@@ -5,17 +5,29 @@
            ba-panel-title="Add breakfast dish"
            ba-panel-class="xmedium-panel feed-comply-panel with-scroll todo-panel">
         <!-- <menu-list></menu-list> -->
-        <form ng-submit="vm.addDish('breakfast')">
+        <h5>View range</h5>
+        <ion-slider type="double"
+        grid="true"
+        min="[{{vm.rango.min}}]"
+        max="23"
+        from="6"
+        to="10"
+        disable="false">
+      </ion-slider>
+        <form ng-submit="vm.addDish('breakfast')" style="padding-top:15px">
             <div class="row" style="padding: 0 15px 15px 15px;">
               <label>
-                <input ng-model="vm.dishText" class="form-control task-todo" placeholder="Add dish">
+                <input ng-model="vm.dishText"
+                       class="form-control task-todo"
+                       placeholder="Add dish"
+                       style="width:245px;">
               </label>
               <button type="submit" class="btn btn-primary btn-lg"><i class="icon ion-plus"></i></button>
             </div>
         </form>
 
         <div>
-          <ul style="padding:0px;">
+          <ul style="padding-top:20px;padding-left:0px">
             <li ng-repeat="dish in vm.dishes | filter : {class: 'breakfast'}"
                 ng-mouseenter="entro = true"
                 ng-mouseleave="entro = false"
@@ -44,10 +56,24 @@
            ba-panel-title="Add Lunch dish"
            ba-panel-class="xmedium-panel feed-comply-panel with-scroll todo-panel">
         <!-- <menu-list></menu-list> -->
-        <form ng-submit="vm.addDish('lunch')">
+        <h5>View range</h5>
+        <ion-slider type="double"
+        grid="true"
+        min="0"
+        max="23"
+        from="6"
+        to="10"
+        from="12"
+        to="13"
+        disable="false">
+        </ion-slider>
+        <form ng-submit="vm.addDish('lunch')" style="padding-top:15px">
             <div class="row" style="padding: 0 15px 15px 15px;">
               <label>
-                <input ng-model="vm.dishText" class="form-control task-todo" placeholder="Add dish">
+                <input ng-model="vm.dishText"
+                       class="form-control task-todo"
+                       placeholder="Add dish"
+                       style="width:245px;">
               </label>
               <button type="submit" class="btn btn-primary btn-lg"><i class="icon ion-plus"></i></button>
             </div>
@@ -83,10 +109,24 @@
            ba-panel-title="Add Dinner dish"
            ba-panel-class="xmedium-panel feed-comply-panel with-scroll todo-panel">
         <!-- <menu-list></menu-list> -->
-        <form ng-submit="vm.addDish('dinner')">
+        <h5>View range</h5>
+        <ion-slider type="double"
+        grid="true"
+        min="0"
+        max="23"
+        from="6"
+        to="10"
+        from="12"
+        to="13"
+        disable="false">
+        </ion-slider>
+        <form ng-submit="vm.addDish('dinner')" style="padding-top:15px">
             <div class="row" style="padding: 0 15px 15px 15px;">
               <label>
-                <input ng-model="vm.dishText" class="form-control task-todo" placeholder="Add dish">
+                <input ng-model="vm.dishText"
+                       class="form-control task-todo"
+                       placeholder="Add dish"
+                       style="width:245px;">
               </label>
               <button type="submit" class="btn btn-primary btn-lg"><i class="icon ion-plus"></i></button>
             </div>

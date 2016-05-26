@@ -1,9 +1,16 @@
-/*global angular */
+/*global angular, google */
 (function () {
 'use strict';
    function MainCtrl($http, $scope, Enlace) {
    	var vm = this;
-      vm.urlImg = 'http://localhost:3001/assets/images/';
+    // var geocoder = new google.maps.Geocoder();
+    // var yourLocation = new google.maps.LatLng(lat, longi);
+    // geocoder.geocode({ 'latLng': yourLocation },processGeocoder);
+    //
+    // console.log(yourLocation);
+
+
+    vm.urlImg = 'http://localhost:3001/assets/images/';
    	vm.location = '';
       console.log('ñ');
 

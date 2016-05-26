@@ -17,7 +17,7 @@
           return {title:'Breakfast\' Menu', menu:'breakfast'};
         }else if ( now.getHours() >= 13 && now.getHours() <= 13 ) {
           return {title:'Lunch\' Menu', menu:'lunch'};
-        }else if ( now.getHours() >= 16 && now.getHours() <= 19) {
+        }else if ( now.getHours() >= 17 && now.getHours() <= 19) {
           return {title: 'Dinner\'s Menu', menu: 'dinner'};
         }else{
           if(now.getMinutes() >= 30 ){
@@ -98,6 +98,27 @@
       $interval(vm.loadMenu, 1000);
     }
     //--------------------------------------------------------------------------
+    vm.rango = {
+      min : 0,
+      max : 23
+    };
+
+    vm.rangoA = {
+      from : 6,
+      to : 10
+    };
+
+    vm.rangoB = {
+      from : 11,
+      to : 13
+    };
+
+    vm.rangoC = {
+      from : 17,
+      to : 21
+    };
+
+
   }
 
   angular.module('app.controllers', [])
