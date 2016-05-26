@@ -32,13 +32,13 @@
     <script src="js/controllers.js"></script>
   </head>
   <body ng-app="app" ng-controller="mainCtrl as vm">
-    <div class="container" style="visibility:{{ !vm.vissible }}">
+    <div class="container" style="visibility:{{ vm.vissible }}">
         <div class="row bar" style="max-height:30px;margin : 0 !important;padding : 45px !important">
           <div class="col col-10">
             <i class="ion-ios-paper-outline"></i>
           </div>
-          <div class="col col-20" style="position:absolute;width:auto">
-            <h1 style="margin-bottom:40px;position:relative"> {{ vm.isTimeOf().title }}  </h1>
+          <h1 style="margin-bottom:40px;position:relative" class="titulo"> {{ vm.isTimeOf().title }}  </h1>
+          <div class="col col-20">
           </div>
         </div>
 
@@ -57,23 +57,27 @@
                         {{feed.contentSnippet}}
                       </span>
                     </div>
-                    <div class="newDate">{{feed.publishedDate}}</div>
+                    <div class="newDate">{{ feed.publishedDate }}</div>
                </div>
               </div>
         </div>
 
-        <div id="titles" ng-if="vm.isTimeOf().menu !== 'news'">
+        <div id="titles" ng-if="vm.isTimeOf().menu == 'lunch' || vm.isTimeOf().menu == 'dinner' || vm.isTimeOf().menu == 'breakfast' ">
             <div id="titlecontent" class="switch" ng-animate="'animate'">
                <div class="item" ng-repeat="dish in vm.menus | filter:{class: vm.isTimeOf().menu}">
                    <div class="row" >
                      <div class="col col-90 title">
                        <span>
-                         {{dish.dish}}
+                         {{ dish.dish }}
                        </span>
                      </div>
                    </div>
                </div>
             </div>
+        </div>
+
+        <div class="row" ng-if="vm.isTimeOf().menu == 'volante'">
+          <img ng-src="{{ vm.handout }}" alt="" id="handOut" />
         </div>
     </div>
   </body>
