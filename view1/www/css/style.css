@@ -93,6 +93,10 @@ h1 {
 
 #temp {
 	padding-top: 15px;
+	padding-left: 0px;
+	padding-right: 0px;
+	margin: 0;
+	width: 350px;
 }
 
 h2, .city {
