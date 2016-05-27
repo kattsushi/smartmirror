@@ -198,7 +198,7 @@ module.factory(
          *
          * Data properties:
          *
-         *  - `exists` – `{boolean=}` - 
+         *  - `exists` – `{boolean=}` -
          */
         "exists": {
           url: urlBase + "/enlaces/:id/exists",
@@ -399,7 +399,7 @@ module.factory(
          *
          * Data properties:
          *
-         *  - `count` – `{number=}` - 
+         *  - `count` – `{number=}` -
          */
         "count": {
           url: urlBase + "/enlaces/count",
@@ -459,7 +459,7 @@ module.factory(
          *
          * @param {Object} postData Request data.
          *
-         *  - `options` – `{object=}` - 
+         *  - `options` – `{object=}` -
          *
          * @param {function(Object,Object)=} successCb
          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -473,7 +473,7 @@ module.factory(
          *
          * Data properties:
          *
-         *  - `changes` – `{ReadableStream=}` - 
+         *  - `changes` – `{ReadableStream=}` -
          */
         "createChangeStream": {
           url: urlBase + "/enlaces/change-stream",
@@ -493,9 +493,9 @@ module.factory(
          *
          * @param {Object=} parameters Request parameters.
          *
-         *  - `status` – `{boolean=}` - 
+         *  - `status` – `{boolean=}` -
          *
-         *  - `id_espejo` – `{string=}` - 
+         *  - `id_espejo` – `{string=}` -
          *
          * @param {function(Object,Object)=} successCb
          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -509,11 +509,11 @@ module.factory(
          *
          * Data properties:
          *
-         *  - `screen` – `{boolean=}` - 
+         *  - `screen` – `{boolean=}` -
          *
-         *  - `timeoff` – `{number=}` - 
+         *  - `timeoff` – `{number=}` -
          *
-         *  - `id_espejo` – `{string=}` - 
+         *  - `id_espejo` – `{string=}` -
          */
         "Event": {
           url: urlBase + "/enlaces/Event",
@@ -830,7 +830,7 @@ module.factory(
          *
          * Data properties:
          *
-         *  - `exists` – `{boolean=}` - 
+         *  - `exists` – `{boolean=}` -
          */
         "exists": {
           url: urlBase + "/menuDiarios/:id/exists",
@@ -1031,7 +1031,7 @@ module.factory(
          *
          * Data properties:
          *
-         *  - `count` – `{number=}` - 
+         *  - `count` – `{number=}` -
          */
         "count": {
           url: urlBase + "/menuDiarios/count",
@@ -1091,7 +1091,7 @@ module.factory(
          *
          * @param {Object} postData Request data.
          *
-         *  - `options` – `{object=}` - 
+         *  - `options` – `{object=}` -
          *
          * @param {function(Object,Object)=} successCb
          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -1105,7 +1105,7 @@ module.factory(
          *
          * Data properties:
          *
-         *  - `changes` – `{ReadableStream=}` - 
+         *  - `changes` – `{ReadableStream=}` -
          */
         "createChangeStream": {
           url: urlBase + "/menuDiarios/change-stream",
@@ -1422,7 +1422,7 @@ module.factory(
          *
          * Data properties:
          *
-         *  - `exists` – `{boolean=}` - 
+         *  - `exists` – `{boolean=}` -
          */
         "exists": {
           url: urlBase + "/fuentes/:id/exists",
@@ -1623,7 +1623,7 @@ module.factory(
          *
          * Data properties:
          *
-         *  - `count` – `{number=}` - 
+         *  - `count` – `{number=}` -
          */
         "count": {
           url: urlBase + "/fuentes/count",
@@ -1683,7 +1683,7 @@ module.factory(
          *
          * @param {Object} postData Request data.
          *
-         *  - `options` – `{object=}` - 
+         *  - `options` – `{object=}` -
          *
          * @param {function(Object,Object)=} successCb
          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -1697,7 +1697,7 @@ module.factory(
          *
          * Data properties:
          *
-         *  - `changes` – `{ReadableStream=}` - 
+         *  - `changes` – `{ReadableStream=}` -
          */
         "createChangeStream": {
           url: urlBase + "/fuentes/change-stream",

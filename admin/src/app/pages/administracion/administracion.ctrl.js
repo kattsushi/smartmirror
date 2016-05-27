@@ -1,11 +1,49 @@
+/* globals  L */
 (function () {
   'use strict';
 
   /** @ngInject */
-  function administracionCtrl(Enlace, $scope) {
+  function administracionCtrl(Enlace, $scope, $timeout) {
     //--------------------------------------------------------------------------
       var vm = this;
       vm.sections = [];
+      vm.location = {
+        lat : 10.500000,
+        lng : -66.916664
+      };
+      function initialize() {
+      L.Icon.Default.imagePath = 'assets/img/theme/vendor/leaflet/dist/images';
+      var map = L.map(document.getElementById('leaflet-map')).setView([10.500000, -66.916664], 13);
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+
+     var marker = new L.marker([vm.location.lat, vm.location.lng],
+            {draggable: true,        // Make the icon dragable
+            title: 'Hover Text',     // Add a title
+            opacity: 0.8}            // Adjust the opacity
+          ).addTo(map);
+
+      marker.on('dragend', function (e) {
+        vm.location = { lat : e.target.getLatLng().lat, lng:  e.target.getLatLng().lng };
+        console.log(vm.location);
+        Enlace
+        .updateAll({where:{id_espejo: '001'}},{location: vm.location})
+        .$promise
+        .then(function (data) {
+          // this.bindPopup(vm.locations.lat.toString()+' '+vm.locations.lng.toString()).openPopup();
+
+        }).bind(this);
+      });
+}
+
+
+    $timeout(function(){
+      initialize();
+    }, 100);
+
+
+
       Enlace
          .find({filter:{where:{id_espejo:'001'}}})
          .$promise
@@ -16,6 +54,7 @@
             console.log(vm.sections[0].screen);
             $scope.screenSwitch = vm.sections[0].screen;
          });
+
 
     // $scope.$watch(function() {
     //                   return $scope.toggle;
@@ -56,8 +95,6 @@
         .$promise
         .then(function (res) {
           console.log(res);
-        }, function (err) {
-          console.log(err);
         });
      };
 
@@ -78,5 +115,6 @@
   }
 
   angular.module('SmartMirror.pages.administracion')
-         .controller('administracionCtrl',['Enlace','$scope', administracionCtrl]);
+         .controller('administracionCtrl',['Enlace','$scope','$timeout',
+          administracionCtrl]);
 })();

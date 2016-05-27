@@ -32,8 +32,7 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="row">
+
     <div class="col-md-12 col-lg-4">
       <div ba-panel ba-panel-title="Screen config" ba-panel-class="xsmall-panel light-text feed-comply-panel with-scroll todo-panel">
         <div class="input-group">
@@ -45,6 +44,18 @@
                  type="number" step="10">
         </div>
       </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 col-lg-8">
+      <div ba-panel ba-panel-title="Location config"
+           ba-panel-class="panel light-text feed-comply-panel with-scroll todo-panel">
+        <div id="leaflet-map"></div>
+      </div>
+    </div>
+    <div class="col-md-12 col-lg-8">
+      {{vm.locations | json}}
     </div>
   </div>
 </div>
