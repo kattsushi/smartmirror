@@ -79,7 +79,8 @@
       .find({where:{id_espejo:'001'}})
       .$promise
       .then(function(data){
-        var srcImg = 'http://localhost:3001/assets/img/handout/';
+        // var srcImg = 'http://localhost:3001/assets/img/handout/';
+        var srcImg = 'http://10.0.0.121:3001/assets/img/handout/';
         vm.handout = srcImg + data[0].handout.toString() + '.png';
         // console.log(vm.handout);
       });
