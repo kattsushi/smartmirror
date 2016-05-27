@@ -3,23 +3,25 @@
 'use strict';
    function MainCtrl($http, $scope, Enlace) {
    	var vm = this;
+    vm.location = {};
 
     vm.urlImg = 'http://localhost:3001/assets/images/';
-   	vm.location = {
-      lat : 10.500000,
-      lon : -66.916664
-    };
-      console.log('ñ');
 
       setInterval(function () {
          Enlace
          .find({})
          .$promise
          .then(function(data){
-            console.log(data);
+            // console.log(data);
             vm.sections = [];
+
             vm.name = data[0].name;
             vm.coment = data[0].coment;
+            vm.location = {
+              lat : data[0].location.lat,
+              lng : data[0].location.lng
+            };
+            // console.log(vm.location);
             vm.id_espejo = 'http://localhost:3001/assets/pictures/' + data[0].logo.toString() + '.png';
             for (var i = 0; i < data.length; i++) {
                if (data[i].screen && data[i].id_espejo === '001'){
@@ -30,31 +32,26 @@
                vm.sections.push(data);
                // console.log(data);
             }
+            vm.initial = function(){
+              var api = 'http://api.openweathermap.org/data/2.5/weather?lat=';
+              var callback = '&APPID=a8f5261ee6863849df5a45497bb27163&callback=JSON_CALLBACK';
+
+              $http.jsonp( api + vm.location.lat + '&lon='+ vm.location.lng + callback)
+              .success(function(data){
+                vm.weatherData = data;
+                //  console.log(data);
+                $('.loading').hide();
+              }).
+              error(function(){
+                $('.loading').hide();
+                $('.error').show().html("Sorry there has been an error connecting to the API");
+              });
+            };
+
+            vm.initial();
          })
       }, 500);
 
-
-       vm.initial = function(){
-        //  navigator.geolocation.getCurrentPosition(function(position){
-        //    var lat = position.coords.latitude;
-        //    var lon = position.coords.longitude;
-
-          //  $http.jsonp("http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&APPID=a8f5261ee6863849df5a45497bb27163&callback=JSON_CALLBACK").
-          $http.jsonp("http://api.openweathermap.org/data/2.5/weather?lat=" + vm.location.lat.toString() + "&lon="+ vm.location.lon.toString()+"&APPID=a8f5261ee6863849df5a45497bb27163&callback=JSON_CALLBACK")
-          .success(function(data){
-             vm.weatherData = data;
-             console.log(data);
-             $('.loading').hide();
-           }).
-           error(function(){
-             $('.loading').hide();
-             $('.error').show().html("Sorry there has been an error connecting to the API");
-           });
-
-        //  });
-       };
-
-       vm.initial();
 
        vm.refresh = function(){
          $('.loading').show();
@@ -62,7 +59,7 @@
            $http.jsonp("http://api.openweathermap.org/data/2.5/weather?q="+$scope.location+"&APPID=a8f5261ee6863849df5a45497bb27163&callback=JSON_CALLBACK").
            	success(function(data){
                vm.weatherData = data;
-               console.log(data);
+              //  console.log(data);
                $('.loading').hide();
            	}).
              error(function(){

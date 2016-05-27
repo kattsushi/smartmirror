@@ -3,17 +3,15 @@
   'use strict';
 
   /** @ngInject */
-  function administracionCtrl(Enlace, $scope, $timeout) {
+  function administracionCtrl(Enlace, $scope, $timeout, $http) {
     //--------------------------------------------------------------------------
       var vm = this;
       vm.sections = [];
-      vm.location = {
-        lat : 10.500000,
-        lng : -66.916664
-      };
+
+
       function initialize() {
       L.Icon.Default.imagePath = 'assets/img/theme/vendor/leaflet/dist/images';
-      var map = L.map(document.getElementById('leaflet-map')).setView([10.500000, -66.916664], 13);
+      var map = L.map(document.getElementById('leaflet-map')).setView([vm.location.lat, vm.location.lng], 13);
       L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       }).addTo(map);
@@ -31,29 +29,39 @@
         .updateAll({where:{id_espejo: '001'}},{location: vm.location})
         .$promise
         .then(function (data) {
-          // this.bindPopup(vm.locations.lat.toString()+' '+vm.locations.lng.toString()).openPopup();
 
-        }).bind(this);
-      });
-}
+        });
+        console.log(e.target);
+        var api = 'http://api.openweathermap.org/data/2.5/weather?lat=';
+        var callback = '&APPID=a8f5261ee6863849df5a45497bb27163&callback=JSON_CALLBACK';
 
-
-    $timeout(function(){
-      initialize();
-    }, 100);
-
-
-
-      Enlace
-         .find({filter:{where:{id_espejo:'001'}}})
-         .$promise
-         .then(function(data){
-            for (var i = 0; i < data.length; i++) {
-              vm.sections.push(data[i]);
-            }
-            console.log(vm.sections[0].screen);
-            $scope.screenSwitch = vm.sections[0].screen;
+        $http.jsonp( api + vm.location.lat.toString() + '&lon='+ vm.location.lng.toString() + callback)
+        .success(function(data){
+           vm.data = data;
+           console.log(data.name);
+           marker.bindPopup(data.name).openPopup();
+        })
+        .error(function(){
          });
+      });
+    }
+
+    Enlace
+     .find({filter:{where:{id_espejo:'001'}}})
+     .$promise
+     .then(function(data){
+        for (var i = 0; i < data.length; i++) {
+          vm.sections.push(data[i]);
+        }
+        vm.location = vm.sections[0].location;
+
+        $timeout(function(){
+          initialize();
+        }, 100);
+
+        console.log(vm.sections[0].location);
+        $scope.screenSwitch = vm.sections[0].screen;
+     });
 
 
     // $scope.$watch(function() {
@@ -115,6 +123,6 @@
   }
 
   angular.module('SmartMirror.pages.administracion')
-         .controller('administracionCtrl',['Enlace','$scope','$timeout',
+         .controller('administracionCtrl',['Enlace','$scope','$timeout','$http',
           administracionCtrl]);
 })();
