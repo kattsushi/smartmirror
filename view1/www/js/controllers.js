@@ -3,8 +3,12 @@
 'use strict';
    function MainCtrl($http, $scope, Enlace) {
    	var vm = this;
-      vm.urlImg = 'http://localhost:3001/assets/images/';
-   	vm.location = '';
+
+    vm.urlImg = 'http://localhost:3001/assets/images/';
+   	vm.location = {
+      lat : 10.500000,
+      lon : -66.916664
+    };
       console.log('ñ');
 
       setInterval(function () {
@@ -18,7 +22,7 @@
             vm.coment = data[0].coment;
             vm.id_espejo = 'http://localhost:3001/assets/pictures/' + data[0].logo.toString() + '.png';
             for (var i = 0; i < data.length; i++) {
-               if (data[i].screen && data[i].id_espejo === "001"){
+               if (data[i].screen && data[i].id_espejo === '001'){
                   vm.vissible = 'visibility';
                }else{
                   vm.vissible = 'hidden';
@@ -31,12 +35,13 @@
 
 
        vm.initial = function(){
-         navigator.geolocation.getCurrentPosition(function(position){
-           var lat = position.coords.latitude;
-           var lon = position.coords.longitude;
+        //  navigator.geolocation.getCurrentPosition(function(position){
+        //    var lat = position.coords.latitude;
+        //    var lon = position.coords.longitude;
 
-           $http.jsonp("http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&APPID=a8f5261ee6863849df5a45497bb27163&callback=JSON_CALLBACK").
-           success(function(data){
+          //  $http.jsonp("http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&APPID=a8f5261ee6863849df5a45497bb27163&callback=JSON_CALLBACK").
+          $http.jsonp("http://api.openweathermap.org/data/2.5/weather?lat=" + vm.location.lat.toString() + "&lon="+ vm.location.lon.toString()+"&APPID=a8f5261ee6863849df5a45497bb27163&callback=JSON_CALLBACK")
+          .success(function(data){
              vm.weatherData = data;
              console.log(data);
              $('.loading').hide();
@@ -46,7 +51,7 @@
              $('.error').show().html("Sorry there has been an error connecting to the API");
            });
 
-         });
+        //  });
        };
 
        vm.initial();
