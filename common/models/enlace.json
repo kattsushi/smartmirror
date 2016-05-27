@@ -80,6 +80,9 @@
     "cres_height": {
       "type": "number",
       "default": 480
+    },
+    "location": {
+      "type": "geopoint"
     }
   },
   "validations": [],
