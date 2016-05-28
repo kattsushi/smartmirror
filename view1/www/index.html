@@ -151,7 +151,7 @@
                 class="wi wi-fog"></i>
 
             <h2 id="temp2">
-              {{vm.weatherData.main.temp - 273 | number:0}} &deg;C
+              {{vm.weatherData.main.temp - 273 | number:0}} <span id="cent">&deg;C</span>
             </h2>
             <img ng-src="{{vm.id_espejo}}" alt="" id="logo" />
              <!-- <span class="city">{{vm.weatherData.name}},  {{vm.weatherData.sys.country}}</span> -->
