@@ -66,7 +66,7 @@ iconos
 
 .icon > i  {
   margin-top: 20px;
-  font-size: 15em;
+  font-size: 11em;
 }
 
 
@@ -76,23 +76,31 @@ iconos
 }
 
 img {
-  padding-top: 30px;
+  padding-top: 10px;
 }
 
 #clock {
-  padding-top: 80px;
+  padding-top: 10px;
+	font-size: 2.4em;
+	display: inline-block;
 }
 
 h1 {
   color : white;
-  font-size: 2.4em;
+  font-size: 1.4em;
   margin : 0;
   font-family: 'Roboto Mono' ;
 }
 
 #temp {
 	padding-top: 15px;
+	font-size: 1.9em;
 }
+#temp2 {
+	padding-top: 15px;
+	font-size: 3.1em;
+}
+
 
 h2, .city {
   color : white;
@@ -105,7 +113,7 @@ h2, .city {
 }
  .date {
   color : white;
-  font-size: 2.5em;
+  font-size: 1.5em;
   margin : 0;
   font-family: 'Krona One', sans-serif;
   font-weight: 400;
@@ -114,7 +122,7 @@ h2, .city {
 
 p {
   width: 70%;
-  margin: 20px auto;
+  margin: 0 auto;
   font-family: 'Roboto Mono' ;
 }
 
@@ -138,7 +146,7 @@ input {
 .icon {
   padding:0px;
   color:white;
-  float: right;
+	display: inline-block;
 }
 
 .card {
@@ -181,7 +189,7 @@ input {
 
 
 .icon > h2 {
-  font-size: 6em;
+  font-size: 3em;
 }
 
 /*============================================================================*/
