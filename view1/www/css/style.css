@@ -66,8 +66,8 @@ iconos
 
 .icon > i  {
   margin-top: 20px;
-  font-size: 15em;
-	padding-right: 90px;
+  font-size: 10em;
+	padding-right: 150px;
 }
 
 .firt {
@@ -98,7 +98,7 @@ h1 {
 
 #temp2 {
 	padding-top: 15px;
-	padding-right: 70px;
+	padding-right: 98px;
 	margin-top: 10px;
 	font-size: 3em;
 }
@@ -106,7 +106,7 @@ h1 {
 #temp {
 	padding-top: 15px;
 	margin-top: 10px;
-	font-size: 3em;
+	font-size: 2.1em;
 }
 
 h2, .city {
@@ -120,7 +120,7 @@ h2, .city {
 }
  .date {
   color : white;
-  font-size: 2.5em;
+  font-size: 2.1em;
   margin : 0;
   font-family: 'Krona One', sans-serif;
   font-weight: 400;
@@ -129,7 +129,7 @@ h2, .city {
 
 p {
   width: 70%;
-  margin: 20px auto;
+  margin: 11px auto;
   font-family: 'Roboto Mono' ;
 }
 
