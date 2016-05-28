@@ -67,20 +67,26 @@ iconos
 .icon > i  {
   margin-top: 20px;
   font-size: 15em;
+	padding-right: 90px;
 }
 
+.firt {
+	margin: 0 auto;
+	text-align: center;
+}
 
 .container, .card.back {
   padding-left: 0;
   margin-left: 0;
+	height: 100%
 }
 
 img {
-  padding-top: 30px;
+  padding-top: 10px;
 }
 
 #clock {
-  padding-top: 40px;
+  padding-top: 20px;
 }
 
 h1 {
@@ -90,8 +96,17 @@ h1 {
   font-family: 'Roboto Mono' ;
 }
 
+#temp2 {
+	padding-top: 15px;
+	padding-right: 70px;
+	margin-top: 10px;
+	font-size: 3em;
+}
+
 #temp {
 	padding-top: 15px;
+	margin-top: 10px;
+	font-size: 3em;
 }
 
 h2, .city {

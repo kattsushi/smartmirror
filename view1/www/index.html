@@ -42,17 +42,7 @@
            class="row card back"
            style="padding:0;margin:0;">
         <div class="col col-60" style="padding-left:30px">
-          <h2 id="clock">
-            {{ clock }}
-          </h2>
-          <div class="date">
-              {{ date }}
-          </div>
-          <h2 id="temp">Bienvenido {{ vm.name }} ,
-             <p style="font-size:0.7em;font-family: 'Krona One', sans-serif;">
-               {{vm.coment}}
-             </p>
-          </h2>
+
         <div class="icon" >
             <!-- Dia -->
             <i ng-if="vm.weatherData.weather[0].id == 800 &&
@@ -160,11 +150,24 @@
                        vm.weatherData.weather[0].id <= 781"
                 class="wi wi-fog"></i>
 
-            <h2 id="temp">
+            <h2 id="temp2">
               {{vm.weatherData.main.temp - 273 | number:0}} &deg;C
             </h2>
-            <img ng-src="{{vm.id_espejo}}" alt="" id="logo" />
              <!-- <span class="city">{{vm.weatherData.name}},  {{vm.weatherData.sys.country}}</span> -->
+        </div>
+        <div class="firt">
+          <h2 id="clock">
+            {{ clock }}
+          </h2>
+          <div class="date">
+            {{ date }}
+          </div>
+          <h2 id="temp">Bienvenido {{ vm.name }} ,
+            <p style="font-size:0.7em;font-family: 'Krona One', sans-serif;">
+              {{vm.coment}}
+            </p>
+          </h2>
+          <img ng-src="{{vm.id_espejo}}" alt="" id="logo" />
         </div>
       </div>
       </div>
