@@ -22,7 +22,8 @@
               lng : data[0].location.lng
             };
             // console.log(vm.location);
-            vm.id_espejo = 'http://localhost:3001/assets/pictures/' + data[0].logo.toString() + '.png';
+            // vm.id_espejo = 'http://localhost:3001/assets/pictures/' + data[0].logo.toString() + '.png';
+            vm.id_espejo = 'http://10.0.0.121:3001/assets/pictures/' + data[0].logo.toString() + '.png';
             for (var i = 0; i < data.length; i++) {
                if (data[i].screen && data[i].id_espejo === '001'){
                   vm.vissible = 'visibility';
@@ -30,7 +31,7 @@
                   vm.vissible = 'hidden';
                }
                vm.sections.push(data);
-               // console.log(data);
+              //  console.log(data);
             }
             vm.initial = function(){
               var api = 'http://api.openweathermap.org/data/2.5/weather?lat=';
