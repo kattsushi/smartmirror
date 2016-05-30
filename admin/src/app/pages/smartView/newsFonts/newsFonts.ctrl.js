@@ -2,19 +2,24 @@
   'use strict';
 
   /** @ngInject */
-  function newsFontsCtrl(Enlace, Fuentes, $http, $uibModal, $scope, fileUpload2) {
+  function newsFontsCtrl(Enlace, Fuentes, $http,
+                         $uibModal, $scope, fileUpload2, $interval) {
     //--------------------------------------------------------------------------
       var vm = this;
       vm.sections = [];
-      Enlace
-         .find({filter:{where:{id_espejo:'001'}}})
-         .$promise
-         .then(function(data){
-            for (var i = 0; i < data.length; i++) {
-              vm.sections.push(data[i]);
-            }
-            console.log(vm.sections);
-         });
+      $interval(function () {
+        Enlace
+           .find({filter:{where:{id_espejo:'001'}}})
+           .$promise
+           .then(function(data){
+              for (var i = 0; i < data.length; i++) {
+                vm.sections.push(data[i]);
+              }
+              var srcImg = 'http://10.0.0.121:3001/assets/img/handout/';
+              vm.handout = srcImg + data[0].handout.toString() + '.png';
+              // console.log(vm.sections);
+           });
+      }, 500);
    //---------------------------------------------------------------------------
 
    vm.fonts = [];
@@ -131,9 +136,11 @@
   angular.module('SmartMirror.pages.smartView.newsFonts')
          .controller('newsFontsCtrl',[
                                       'Enlace','Fuentes','$http','$uibModal',
-                                      '$scope','fileUpload2', newsFontsCtrl
+                                      '$scope','fileUpload2', '$interval',
+                                       newsFontsCtrl
                                      ])
-          .service('fileUpload2', ['$http', function ($http) {
+
+         .service('fileUpload2', ['$http', function ($http) {
                       this.uploadFileToUrl = function(file, uploadUrl){
                          //  console.log(uploadUrl);
                           var fd = new FormData();

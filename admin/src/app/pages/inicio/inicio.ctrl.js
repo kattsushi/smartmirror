@@ -13,6 +13,7 @@
             for (var i = 0; i < data.length; i++) {
               vm.sections.push(data[i]);
             }
+            vm.vissible = data[0].screen;
             console.log(vm.sections);
          });
    //---------------------------------------------------------------------------

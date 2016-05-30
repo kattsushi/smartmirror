@@ -21,7 +21,8 @@
           vm.sections = [];
           vm.name = data[0].name;
           vm.coment = data[0].coment;
-          vm.id_espejo = 'http://localhost:3001/assets/img/' + data[0].logo.toString() + '.png';
+          // vm.id_espejo = 'http://localhost:3001/assets/img/' + data[0].logo.toString() + '.png';
+          vm.id_espejo = 'http://10.0.0.121:3001/assets/img/' + data[0].logo.toString() + '.png';
           for (var i = 0; i < data.length; i++) {
              if (data[i].screen && data[i].id_espejo === '001'){
                 vm.vissible = 'visibility';
