@@ -33,17 +33,22 @@
     vm.loadFonts = function(){
       vm.Feed = function(url){
         return $http
-               .jsonp( ajax + encodeURIComponent(url));
+              //  .jsonp( ajax + encodeURIComponent(url));
+              .jsonp( ajax + encodeURI(url));
+              
       };
       Fuentes
       .find({filter:{where:{status: true}}})
       .$promise
       .then(function (font) {
         vm.feedSrc = font[0].url;
+        console.log(vm.feedSrc);
         vm.name = font[0].name;
         vm.Feed(vm.feedSrc)
         .then(function(res){
           vm.feeds = res.data.responseData.feed.entries;
+        }, function (err) {
+          console.log(err);
         });
       });
      //-------------------------------------------------------------------------
@@ -61,7 +66,7 @@
             }
          }
       });
-    //  console.log(vm.vissible);
+     console.log(vm.vissible);
     };
     //--------------------------------------------------------------------------
     vm.loadMenu = function () {
@@ -80,7 +85,8 @@
       .$promise
       .then(function(data){
         // var srcImg = 'http://localhost:3001/assets/img/handout/';
-        var srcImg = 'http://10.0.0.121:3001/assets/img/handout/';
+        // var srcImg = 'http://10.0.0.121:3001/assets/img/handout/';
+        var srcImg = 'http://192.168.0.10:3001/assets/img/handout/';
         vm.handout = srcImg + data[0].handout.toString() + '.png';
         // console.log(vm.handout);
       });
