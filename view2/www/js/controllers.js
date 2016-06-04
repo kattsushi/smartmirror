@@ -12,18 +12,34 @@
     //--------------------------------------------------------------------------
 
     //----Calcular el tiempo para cada vista
+    // vm.isTimeOf = function () {
+    //     if ( now.getHours() >= 7 && now.getHours() <= 9 ){
+    //       return {title:'Breakfast\' Menu', menu:'breakfast'};
+    //     }else if ( now.getHours() >= 13 && now.getHours() <= 13 ) {
+    //       return {title:'Lunch\' Menu', menu:'lunch'};
+    //     }else if ( now.getHours() >= 17 && now.getHours() <= 19) {
+    //       return {title: 'Dinner\'s Menu', menu: 'dinner'};
+    //     }else{
+    //       if(now.getMinutes() >= 30 ){
+    //         return {title:'News', menu: 'news'};
+    //       }else{
+    //         return {title:'Volante', menu: 'volante'};
+    //       }
+    //     }
+    // };
+
     vm.isTimeOf = function () {
         if ( now.getHours() >= 7 && now.getHours() <= 9 ){
-          return {title:'Breakfast\' Menu', menu:'breakfast'};
+          return {title:'News', menu:'news'};
         }else if ( now.getHours() >= 13 && now.getHours() <= 13 ) {
-          return {title:'Lunch\' Menu', menu:'lunch'};
+          return {title:'News', menu:'news'};
         }else if ( now.getHours() >= 17 && now.getHours() <= 19) {
-          return {title: 'Dinner\'s Menu', menu: 'dinner'};
+          return {title: 'News', menu: 'news'};
         }else{
           if(now.getMinutes() >= 30 ){
             return {title:'News', menu: 'news'};
           }else{
-            return {title:'Volante', menu: 'volante'};
+            return {title:'News', menu: 'news'};
           }
         }
     };
@@ -35,6 +51,11 @@
         return $http
                .jsonp( ajax + encodeURIComponent(url));
       };
+
+      vm.feeds = [{title:'lalala', contentSnippet: 'ashdbaushdik'},
+                  {title:'lalala', contentSnippet: 'ashdbaushdik'},
+                  {title:'lalala', contentSnippet: 'ashdbaushdik'}]
+
       Fuentes
       .find({filter:{where:{status: true}}})
       .$promise
@@ -43,7 +64,7 @@
         vm.name = font[0].name;
         vm.Feed(vm.feedSrc)
         .then(function(res){
-          vm.feeds = res.data.responseData.feed.entries;
+          // vm.feeds = res.data.responseData.feed.entries;
         });
       });
      //-------------------------------------------------------------------------
