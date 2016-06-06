@@ -28,6 +28,7 @@
     //     }
     // };
 
+
     vm.isTimeOf = function () {
         if ( now.getHours() >= 7 && now.getHours() <= 9 ){
           return {title:'News', menu:'news'};
