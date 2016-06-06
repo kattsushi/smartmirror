@@ -7,7 +7,8 @@
   function MainCtrl($http, Enlace, Fuentes, MenuDiario, $interval ) {
     //-Variables globales-------------------------------------------------------
     var vm = this;
-    var ajax = '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=50&callback=JSON_CALLBACK&q=';
+
+    var ajax = 'http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=50&callback=JSON_CALLBACK&q=';
     var now = new Date();
     //--------------------------------------------------------------------------
 
@@ -53,9 +54,9 @@
                .jsonp( ajax + encodeURIComponent(url));
       };
 
-      vm.feeds = [{title:'lalala', contentSnippet: 'ashdbaushdik'},
-                  {title:'lalala', contentSnippet: 'ashdbaushdik'},
-                  {title:'lalala', contentSnippet: 'ashdbaushdik'}]
+      // vm.feeds = [{title:'lalala', contentSnippet: 'ashdbaushdik'},
+      //             {title:'lalala', contentSnippet: 'ashdbaushdik'},
+      //             {title:'lalala', contentSnippet: 'ashdbaushdik'}]
 
       Fuentes
       .find({filter:{where:{status: true}}})
@@ -65,7 +66,8 @@
         vm.name = font[0].name;
         vm.Feed(vm.feedSrc)
         .then(function(res){
-          // vm.feeds = res.data.responseData.feed.entries;
+          vm.feeds = res.data.responseData.feed.entries;
+          console.log(vm.feeds);
         });
       });
      //-------------------------------------------------------------------------
@@ -83,7 +85,7 @@
             }
          }
       });
-    //  console.log(vm.vissible);
+     console.log(vm.vissible);
     };
     //--------------------------------------------------------------------------
     vm.loadMenu = function () {
@@ -111,7 +113,7 @@
     if(vm.isTimeOf().menu === 'news'){
       $interval.cancel(vm.loadMenu);
       vm.loadFonts();
-      $interval(vm.loadFonts, 1000);
+      $interval(vm.loadFonts, 10000);
     }else if (vm.isTimeOf().menu === 'volante') {
       $interval.cancel(vm.loadFonts);
       $interval(vm.loadHandout,1000);

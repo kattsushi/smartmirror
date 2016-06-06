@@ -159,11 +159,13 @@ h1 {
   pointer-events: none;
 }
 
-#titlecontent
-{
+#titlecontent {
   position: absolute;
   top: 100%;
-  animation: scroll 80s linear 4s infinite;
+	-webkit-animation: scroll 80s linear 4s infinite;
+   -moz-animation: scroll 80s linear 4s infinite;
+    -ms-animation: scroll 80s linear 4s infinite;
+        animation: scroll 80s linear 4s infinite;
   min-width: 100%;
 }
 
