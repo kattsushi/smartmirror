@@ -1,0 +1,24 @@
+{
+  "name": "listFuentes",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "titulo": {
+      "type": "string"
+    },
+    "detalle": {
+      "type": "string"
+    },
+    "idFuentes": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
