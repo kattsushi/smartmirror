@@ -143,7 +143,9 @@ h1 {
   text-align: justify;
   font-weight: bold;
   overflow: hidden;
+	-webkit-transform-origin: 50% 100%;
   transform-origin: 50% 100%;
+  -webkit-transform: rotateX(25deg);
   transform: rotateX(25deg);
 }
 
@@ -180,7 +182,7 @@ h1 {
 	animation: scroll;
 }*/
 
-@keyframes scroll {
+@-webkit-keyframes scroll {
   0% { top: 100%; }
   100% { top: -170%; }
 }

@@ -56,7 +56,7 @@
 
       // vm.feeds = [{title:'lalala', contentSnippet: 'ashdbaushdik'},
       //             {title:'lalala', contentSnippet: 'ashdbaushdik'},
-      //             {title:'lalala', contentSnippet: 'ashdbaushdik'}]
+      //             {title:'lalala', contentSnippet: 'ashdbaushdik'}];
 
       Fuentes
       .find({filter:{where:{status: true}}})
@@ -85,6 +85,7 @@
             }
          }
       });
+      // vm.vissible = 'visibility';
      console.log(vm.vissible);
     };
     //--------------------------------------------------------------------------
@@ -113,7 +114,7 @@
     if(vm.isTimeOf().menu === 'news'){
       $interval.cancel(vm.loadMenu);
       vm.loadFonts();
-      $interval(vm.loadFonts, 10000);
+      $interval(vm.loadFonts, 4000);
     }else if (vm.isTimeOf().menu === 'volante') {
       $interval.cancel(vm.loadFonts);
       $interval(vm.loadHandout,1000);
