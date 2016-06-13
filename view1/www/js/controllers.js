@@ -23,8 +23,10 @@
             };
             // console.log(vm.location);
             // vm.id_espejo = 'http://localhost:3001/assets/pictures/' + data[0].logo.toString() + '.png';
-            vm.id_espejo = 'http://10.0.0.121:3001/assets/pictures/' + data[0].logo.toString() + '.png';
-            for (var i = 0; i < data.length; i++) {
+            // vm.id_espejo = 'http://10.0.0.121:3001/assets/pictures/' + data[0].logo.toString() + '.png';
+            vm.id_espejo = 'http://192.168.0.10:3001/assets/pictures/' + data[0].logo.toString() + '.png';
+            
+              for (var i = 0; i < data.length; i++) {
                if (data[i].screen && data[i].id_espejo === '001'){
                   vm.vissible = 'visibility';
                }else{
