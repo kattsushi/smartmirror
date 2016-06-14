@@ -9,8 +9,8 @@
     <link href="css/style.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Krona+One' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,600' rel='stylesheet' type='text/css'>
-
-<link rel='stylesheet prefetch' href='//codepen.io/assets/reset/normalize.css'><link rel='stylesheet prefetch' href='https://s3-us-west-2.amazonaws.com/s.cdpn.io/110131/weather-icons.css'>
+    <link rel='stylesheet prefetch' href='https://codepen.io/assets/reset/normalize.css'>
+    <link rel='stylesheet prefetch' href='https://s3-us-west-2.amazonaws.com/s.cdpn.io/110131/weather-icons.css'>
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
@@ -26,24 +26,18 @@
     <script src="js/app.js"></script>
     <script src="js/routes.js"></script>
     <script src="js/controllers.js"></script>
-
   </head>
+
   <body ng-app="app" ng-controller="mainCtrl as vm">
-    <div class="container" style="visibility:{{ vm.vissible }}">
-
-      <h2 class="error"
-          ng-show="!vm.weatherData.name">
-        {{vm.weatherData.message}}
-      </h2>
-
+    <div class="container" ng-show="vm.state">
       <h2 class="loading">Loading...</h2>
 
-      <div ng-if="vm.weatherData.name"
-           class="row card back"
+      <div class="row card back"
            style="padding:0;margin:0;">
-        <div class="col col-60" style="padding-left:30px">
+        <div class="col col-60"
+             style="padding-left:30px">
 
-        <div class="icon" >
+          <div class="icon">
             <!-- Dia -->
             <i ng-if="vm.weatherData.weather[0].id == 800 &&
                       vm.weatherData.dt < vm.weatherData.sys.sunset"
@@ -144,7 +138,7 @@
                       vm.weatherData.clouds.all >= 50"
                class="wi wi-thunderstorm"></i>
 
-           <p class="info">
+            <p class="info">
 
             <i ng-if="vm.weatherData.weather[0].id >= 701 &&
                        vm.weatherData.weather[0].id <= 781"
@@ -153,25 +147,22 @@
             <h2 id="temp2">
               {{vm.weatherData.main.temp - 273 | number:0}} &deg;C
             </h2>
-             <!-- <span class="city">{{vm.weatherData.name}},  {{vm.weatherData.sys.country}}</span> -->
-        </div>
-        <div class="firt">
-          <h2 id="clock">
-            {{ clock }}
-          </h2>
-          <div class="date">
-            {{ date }}
           </div>
-          <h2 id="temp">Bienvenido {{ vm.name }} ,
-            <p style="font-size:0.7em;font-family: 'Krona One', sans-serif;">
-              {{vm.coment}}
-            </p>
-          </h2>
-          <img ng-src="{{vm.id_espejo}}" alt="" id="logo" />
+          <div class="firt">
+            <h2 id="clock">
+              {{ clock }}
+            </h2>
+            <div class="date">
+              {{ date }}
+            </div>
+            <h2 id="temp">Bienvenido {{ vm.name }} ,
+              <p style="font-size:0.7em;font-family: 'Krona One', sans-serif;">
+                {{vm.coment}}
+              </p>
+            </h2>
+            <img ng-src="{{vm.id_espejo}}" alt="" id="logo" />
+          </div>
         </div>
-      </div>
-      </div>
-    </div>
       </div>
     </div>
   </body>
