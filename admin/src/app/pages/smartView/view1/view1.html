@@ -1,7 +1,9 @@
 <div class="widgets">
   <div class="row shift-up">
     <div class="col-md-12 col-lg-4">
-      <div ba-panel ba-panel-title="Guest" ba-panel-class="todo-panel light-text">
+      <div ba-panel
+           ba-panel-title="Guest"
+           ba-panel-class="todo-panel light-text">
           <div class="form-group">
             <input type="text"
                    class="form-control input-lg"
@@ -11,18 +13,21 @@
       </div>
     </div>
     <div class="col-md-12 col-lg-4">
-      <div ba-panel ba-panel-title="Message to guest" ba-panel-class="todo-panel light-text">
+      <div ba-panel
+           ba-panel-title="Number of room"
+           ba-panel-class="todo-panel light-text">
           <div class="form-group">
-            <textarea class="form-control"
-                      ng-change="vm.onChangeM()"
-                      ng-model="vm.guestMessage"
-                      rows="5">
-            </textarea>
+            <input class="form-control"
+                   ng-change="vm.onChangeM()"
+                   ng-model="vm.guestMessage"
+                   type="number">
+            </input>
           </div>
       </div>
     </div>
     <div class="col-md-12 col-lg-4">
-      <div ba-panel ba-panel-title="Logo"
+      <div ba-panel
+           ba-panel-title="Logo"
            ba-panel-class="light-text feed-comply-panel todo-panel">
         <div class="row">
           <div class="userpic col col-50">

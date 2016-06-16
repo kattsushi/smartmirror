@@ -63,7 +63,7 @@
          .find({filter:{where:{id_espejo:'001'}}})
          .$promise
          .then(function(data){
-            vm.id_espejo = 'http://localhost:3001/assets/pictures/' + data[0].logo.toString() + '.png';
+            vm.id_espejo = 'http://192.168.0.10:3001/assets/pictures/' + data[0].logo.toString() + '.png';
       });
 
     };

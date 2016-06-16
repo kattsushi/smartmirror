@@ -1,16 +1,14 @@
 /**
- * @author v.lugovksy
- * created on 16.12.2015
+ * @author A.Jimenez
+ * created on 16.06.2016
  */
 (function () {
   'use strict';
   /** @ngInject */
   function viewACtrl($scope, Enlace, $http) {
     var vm = this;
-      vm.urlImg = 'http://localhost:3001/assets/images/';
+    vm.urlImg = 'http://192.168.0.10:3001/assets/images/';
     vm.location = '';
-      console.log('ñ');
-
 
     vm.getView = function () {
        Enlace
@@ -22,7 +20,9 @@
           vm.name = data[0].name;
           vm.coment = data[0].coment;
           // vm.id_espejo = 'http://localhost:3001/assets/img/' + data[0].logo.toString() + '.png';
-          vm.id_espejo = 'http://10.0.0.121:3001/assets/img/' + data[0].logo.toString() + '.png';
+          // vm.id_espejo = 'http://10.0.0.121:3001/assets/img/' + data[0].logo.toString() + '.png';
+          vm.id_espejo = 'http://192.168.0.10:3001/assets/img/' + data[0].logo.toString() + '.png';
+
           for (var i = 0; i < data.length; i++) {
              if (data[i].screen && data[i].id_espejo === '001'){
                 vm.vissible = 'visibility';
