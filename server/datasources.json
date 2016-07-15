@@ -4,12 +4,12 @@
     "connector": "memory"
   },
   "mongodb": {
-    "host": "192.168.0.10",
+    "host": "10.0.0.40",
     "port": 27017,
-    "database": "smartmirror",
+    "database": "inmirror",
     "password": "123456789",
     "name": "mongodb",
-    "user": "userSmartmirror",
+    "user": "userInMirror",
     "connector": "mongodb"
   }
 }

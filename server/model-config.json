@@ -18,20 +18,20 @@
     "public": false
   },
   "AccessToken": {
-    "dataSource": "db",
-    "public": false
+    "dataSource": "mongodb",
+    "public": true
   },
   "ACL": {
     "dataSource": "db",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
-    "public": false
+    "dataSource": "mongodb",
+    "public": true
   },
   "Role": {
-    "dataSource": "db",
-    "public": false
+    "dataSource": "mongodb",
+    "public": true
   },
   "enlace": {
     "dataSource": "mongodb",
@@ -52,6 +52,12 @@
     "$resolved": true
   },
   "listFuentes": {
+    "dataSource": "mongodb",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "user": {
     "dataSource": "mongodb",
     "public": true,
     "$promise": {},

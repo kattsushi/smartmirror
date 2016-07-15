@@ -1,22 +1,12 @@
 {
-  "name": "listFuentes",
-  "base": "PersistedModel",
+  "name": "user",
+  "base": "User",
   "strict": false,
   "idInjection": false,
   "options": {
     "validateUpsert": true
   },
-  "properties": {
-    "titulo": {
-      "type": "string"
-    },
-    "detalle": {
-      "type": "string"
-    },
-    "idFuentes": {
-      "type": "string"
-    }
-  },
+  "properties": {},
   "validations": [],
   "relations": {},
   "acls": [
