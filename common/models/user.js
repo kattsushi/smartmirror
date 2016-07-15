@@ -1,9 +1,7 @@
 module.exports = function(User) {
 
-  /*Hooks que crea automaticamente un grupo
-  (defaul - lista de contactos) y
-  RoleMapping (visit - rol del usuario)
-  para el nuevo usuario registrado*/
+  /* Hooks que crea automaticamente un
+  RoleMapping por default */
   User.observe('after save', function (ctx, next) {
 
     var ObjectID = require('mongodb').ObjectID;
