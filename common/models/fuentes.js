@@ -23,7 +23,7 @@ module.exports = function(Fuentes) {
                     console.log(result);
                     resolve(result);
                   },function (err) {
-                    if (err) {throw reject(err);}
+                    if (err) { reject(err); }
                   });
             });
       });
@@ -43,7 +43,7 @@ module.exports = function(Fuentes) {
           feedparser.parseUrl(url).
             on('article',
               function (article){
-
+                console.log(article);
                 var object = new Object();
                 object.title = article.title;
                 object.description = article.description;
