@@ -3,6 +3,8 @@ import boot       from 'loopback-boot';
 import bodyParser from 'body-parser';
 import multer     from 'multer';
 
+import root       from './boot/root';
+
 const app = module.exports = loopback();
 
 app.start = ()=> {
@@ -29,5 +31,6 @@ boot(app, __dirname, (err)=> {
     app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
     app.use(multer()); // for parsing multipart/form-data
   }
+  root(app);
   app.start();
 });
