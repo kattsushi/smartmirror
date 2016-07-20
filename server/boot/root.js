@@ -1,4 +1,4 @@
-export default (server)=> {
+module.exports = (server)=> {
   var router = server.loopback.Router();
   var multer  =   require('multer');
   // Install a `/` route that returns server status
